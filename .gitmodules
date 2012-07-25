@@ -13,3 +13,6 @@
 [submodule ".vim/bundle/sparkup"]
 	path = .vim/bundle/sparkup
 	url = git://github.com/rstacruz/sparkup.git
+[submodule ".vim/bundle/vimclojure"]
+	path = .vim/bundle/vimclojure
+	url = git://github.com/kotarak/vimclojure.git
