@@ -4,7 +4,7 @@
 # If not running interactively, don't do anything
 [ -z "$PS1" ] && return
 
-export PS1="\[$(tput setaf 6)\][\[$(tput setaf 7)\]\u\[$(tput setaf 6)\]@\[$(tput setaf 7)\]\h:\w\[$(tput setaf 6)\]]\\$ \[$(tput sgr0)\]"
+export PS1="\[$(tput setaf 5)\][\[$(tput setaf 7)\]\u\[$(tput setaf 5)\]@\[$(tput setaf 7)\]\h:\w\[$(tput setaf 5)\]]\\$ \[$(tput sgr0)\]"
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -102,33 +102,13 @@ export MPD_HOST="theory@theory"
 export LESS="-iMx4 -FX"
 export PAGER="less -is -R"
 
-
+# term colors!
 export CLICOLOR=true
+export LSCOLORS=Exfxcxdxbxegedabagacad
 
-. ~/.rvm/scripts/rvm
-
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
-export XUGGLE_HOME=/usr/local/xuggler/
-export DYLD_LIBRARY_PATH=$XUGGLE_HOME/lib:$DYLD_LIBRARY_PATH
-
-##
-# Your previous /Users/rroemmich/.bash_profile file was backed up as /Users/rroemmich/.bash_profile.macports-saved_2011-01-18_at_16:53:00
-##
-
-# MacPorts Installer addition on 2011-01-18_at_16:53:00: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-
-export PROJ=obey
-
-# Setting PATH for Python 2.7
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
-export PATH
+# xuggler
+#export XUGGLE_HOME=/usr/local/xuggler/
+#export DYLD_LIBRARY_PATH=$XUGGLE_HOME/lib:$DYLD_LIBRARY_PATH
 
 # fun todos!
 export TODO=~/Dropbox/documents/todo
@@ -136,13 +116,13 @@ function todo() { if [ $# == "0" ]; then cat $TODO; else echo "• $@" >> $TODO;
 function todone() { sed -i -e "/$*/d" $TODO; }
 
 # ec2 tools
-export JAVA_HOME="$(/usr/libexec/java_home)"
-export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.3/jars"
-export EC2_PRIVATE_KEY=`ls ~/.ec2/pk-*.pem`
-export EC2_CERT=`ls ~/.ec2/cert-*.pem`
-export AWS_IAM_HOME="/usr/local/Cellar/aws-iam-tools/1.3.0/jars"
-export AWS_CREDENTIAL_FILE="/Users/rroemmich/.ec2/keys"
-export AWS_ELB_HOME="/usr/local/Cellar/elb-tools/1.0.15.1/jars"
+#export JAVA_HOME="$(/usr/libexec/java_home)"
+#export EC2_HOME="/usr/local/Cellar/ec2-api-tools/1.5.2.3/jars"
+#export EC2_PRIVATE_KEY=`ls ~/.ec2/pk-*.pem`
+#export EC2_CERT=`ls ~/.ec2/cert-*.pem`
+#export AWS_IAM_HOME="/usr/local/Cellar/aws-iam-tools/1.3.0/jars"
+#export AWS_CREDENTIAL_FILE="/Users/rroemmich/.ec2/keys"
+#export AWS_ELB_HOME="/usr/local/Cellar/elb-tools/1.0.15.1/jars"
 
 # vimclojure
-export VIMCLOJURE_SERVER_JAR="$HOME/local/lib/vimclojure/server-2.3.1.jar"
+#export VIMCLOJURE_SERVER_JAR="$HOME/local/lib/vimclojure/server-2.3.1.jar"
