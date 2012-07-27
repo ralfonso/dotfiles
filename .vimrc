@@ -9,6 +9,7 @@ set noswapfile
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
 :autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+:autocmd InsertLeave * redraw!
 
 if has('gui_running')
     colorscheme solarized
@@ -138,13 +139,18 @@ set expandtab
 set shiftwidth=4
 set tabstop=4
 
+if exists("vimrcEX")
+    autocmd! vimrcEX
+endif
+
 augroup vimrcEX
     autocmd FileType html setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType htmldjango setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType phtml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
-    autocmd FileType clojure setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType clojure setlocal expandtab shiftwidth=2 tabstop=2 delimitMate_smart_quotes=0
+    autocmd FileType clojure let b:delimitMate_autoclose = 0
     autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4 omnifunc=phpcomplete#CompletePHP
     autocmd FileType xml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
