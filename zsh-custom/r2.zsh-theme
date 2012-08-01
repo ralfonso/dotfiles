@@ -7,8 +7,10 @@
 # if superuser make the username green
 if [ $UID -eq 0 ]; then NCOLOR="green"; else NCOLOR="white"; fi
 
+purp=$FG[097]
+
 # prompt
-PROMPT='%{$fg[magenta]%}[%{$fg[$NCOLOR]%}%B%n%b%{$reset_color%}:%{$fg[white]%}%30<...<%~%<<%{$fg[magenta]%}]%{$reset_color%}%(!.#.$) '
+PROMPT='%{$purp%}[%{$fg[$NCOLOR]%}%B%n%b%{$FG[243]%}@%{$fg[white]%}%m%{$reset_color%}:%{$fg[white]%}%30<...<%~%<<%{$purp%}]%{$reset_color%}%(!.#.$) '
 RPROMPT='$(git_prompt_info)'
 
 # git theming
