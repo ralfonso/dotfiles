@@ -126,3 +126,5 @@ function todone() { sed -i -e "/$*/d" $TODO; }
 
 # vimclojure
 #export VIMCLOJURE_SERVER_JAR="$HOME/local/lib/vimclojure/server-2.3.1.jar"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
