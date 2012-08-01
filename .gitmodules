@@ -13,9 +13,6 @@
 [submodule ".vim/bundle/sparkup"]
 	path = .vim/bundle/sparkup
 	url = git://github.com/rstacruz/sparkup.git
-[submodule ".vim/bundle/delmitmate"]
-	path = .vim/bundle/delmitmate
-	url = git://github.com/Raimondi/delimitMate.git
 [submodule ".vim/bundle/vimclojure"]
 	path = .vim/bundle/vimclojure
 	url = https://github.com/vim-scripts/VimClojure.git
