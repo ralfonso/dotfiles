@@ -1,6 +1,6 @@
 # r2 theme
 # features:
-# path is autoshortened to ~30 characters
+# path is autoshortened to ~45 characters
 # displays git status (if applicable in current folder)
 # turns username green if superuser, otherwise it is white
 
@@ -10,7 +10,7 @@ if [ $UID -eq 0 ]; then NCOLOR="green"; else NCOLOR="white"; fi
 purp=$FG[097]
 
 # prompt
-PROMPT='%{$purp%}[%{$fg[$NCOLOR]%}%B%n%b%{$FG[243]%}@%{$fg[white]%}%m%{$reset_color%}:%{$fg[white]%}%30<...<%~%<<%{$purp%}]%{$reset_color%}%(!.#.$) '
+PROMPT='%{$purp%}[%{$fg[$NCOLOR]%}%B%n%b%{$fb_bold[gray]%}@%{$fg[white]%}%m%{$reset_color%}:%{$fg[white]%}%45<...<%~%<<%{$purp%}]%{$reset_color%}%(!.#.$) '
 RPROMPT='$(git_prompt_info)'
 
 # git theming
