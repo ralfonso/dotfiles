@@ -12,6 +12,11 @@ ZSH_THEME="r2"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# import aliases
+if [ -f ~/.aliasrc ]; then
+  . ~/.aliasrc
+fi
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
