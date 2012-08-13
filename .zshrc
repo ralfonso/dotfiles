@@ -40,4 +40,4 @@ plugins=(git osx)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-export PATH=/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/usr/local/mysql/bin/:~/bin/
+export PATH=~/bin/:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin
