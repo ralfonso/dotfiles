@@ -1,10 +1,11 @@
 let mapleader=","
 set bg=dark
 call pathogen#runtime_append_all_bundles()
-set wildignore+=*.o,*obj,.git,*.pyc,static/assets/**,*.class
+set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,env
 
 " this helps to throw onchange events for file watchers like Watchdog
 set noswapfile
+set mouse=
 
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
@@ -12,6 +13,7 @@ set noswapfile
 :autocmd InsertLeave * redraw!
 
 if has('gui_running')
+    set mouse=a
     colorscheme solarized
 
     set guifont=Mensch:h12
@@ -86,7 +88,6 @@ set tabstop=4
 
 " folding
 set foldmethod=marker
-set mouse=a
 
 " search options
 set nocursorline
@@ -144,7 +145,9 @@ if exists("vimrcEX")
 endif
 
 augroup vimrcEX
+    au BufRead,BufNewFile *.md set filetype=markdown
     autocmd FileType html setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType css setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType htmldjango setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType phtml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2
@@ -153,11 +156,13 @@ augroup vimrcEX
     autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4 omnifunc=phpcomplete#CompletePHP
     autocmd FileType xml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType markdown setlocal textwidth=79
     autocmd FileType coffeescript setlocal expandtab shiftwidth=2 tabstop=2
         \ formatoptions+=croq softtabstop=2 smartindent
         \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
         \ list listchars=tab:>.,trail:.,extends:#,nbsp:.
     au BufRead,BufNewFile *.pp   setfiletype puppet
+
 
     " Jump to last cursor position unless it's invalid or in an event handler
     autocmd BufReadPost *
@@ -220,6 +225,7 @@ endfunction
 
 "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
-" Settings for VimClojure
-let g:vimclojure#HighlightBuiltins = 1
-let g:vimclojure#ParenRainbow = 1
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
