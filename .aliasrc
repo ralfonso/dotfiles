@@ -1,2 +1,3 @@
 alias mvim="mvim -p"
 alias json-pretty="python -mjson.tool"
+alias fixairplay="sudo kill `ps -ax | grep 'coreaudiod' | grep 'sbin' |awk '{print $1}'`"
