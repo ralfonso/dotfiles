@@ -31,9 +31,6 @@
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
-[submodule "vim-classpath"]
-	path = vim-classpath
-	url = git://github.com/tpope/vim-classpath.git
 [submodule ".vim/bundle/vim-classpath"]
 	path = .vim/bundle/vim-classpath
 	url = git://github.com/tpope/vim-classpath.git
