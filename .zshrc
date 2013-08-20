@@ -39,6 +39,9 @@ plugins=(git osx)
 
 source $ZSH/oh-my-zsh.sh
 
+# disable autocorrect
+unsetopt correct
+
 # Customize to your needs...
 export PATH=~/bin/:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin
 
