@@ -1,7 +1,7 @@
 let mapleader=","
 set bg=dark
 call pathogen#runtime_append_all_bundles()
-set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,env
+set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,enva,target/**
 
 " this helps to throw onchange events for file watchers like Watchdog
 set noswapfile
@@ -16,7 +16,8 @@ if has('gui_running')
     set mouse=a
     colorscheme solarized
 
-    set guifont=Mensch:h12
+    "set guifont=Mensch:h12
+    set guifont=Menlo\ for\ Powerline:h12
 	set guioptions-=T
 	set guioptions+=g
 	set guioptions+=i
@@ -28,6 +29,12 @@ if has('gui_running')
 	set guioptions+=p
 	set cursorline
 	set number
+
+    " for airline
+    let g:airline_enable_syntastic=1
+    let g:airline_theme='solarized2'
+    let g:airline_powerline_fonts=1
+    set laststatus=2
 
 	" Control-Shift-PageUp drags the active tab page to the left (wraps around)
 	imap <silent> <C-S-PageUp> <C-o>:call <Sid>DragLeft()<Cr>
@@ -49,6 +56,8 @@ if has('gui_running')
 		execute 'tabmove' (n == tabpagenr('$') ? 0 : n)
 		let &showtabline = &showtabline
 	endfunction
+else
+    set laststatus=0
 endif
 
 " encoding
@@ -118,7 +127,6 @@ endif
 let html_use_css=1
 
 " setup a funky statusline
-set laststatus=0
 set statusline=
 set statusline+=%-3.3n\                      " buffer number
 set statusline+=%t\                          " file name
@@ -146,6 +154,7 @@ endif
 
 augroup vimrcEX
     au BufRead,BufNewFile *.md set filetype=markdown
+    au BufRead,BufNewFile *.pp   setfiletype puppet
     autocmd FileType html setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType css setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType htmldjango setlocal expandtab shiftwidth=2 tabstop=2
@@ -156,12 +165,12 @@ augroup vimrcEX
     autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4 omnifunc=phpcomplete#CompletePHP
     autocmd FileType xml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType puppet setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType markdown setlocal textwidth=79
     autocmd FileType coffeescript setlocal expandtab shiftwidth=2 tabstop=2
         \ formatoptions+=croq softtabstop=2 smartindent
         \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
         \ list listchars=tab:>.,trail:.,extends:#,nbsp:.
-    au BufRead,BufNewFile *.pp   setfiletype puppet
 
 
     " Jump to last cursor position unless it's invalid or in an event handler
@@ -229,3 +238,4 @@ au VimEnter * RainbowParenthesesToggle
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
