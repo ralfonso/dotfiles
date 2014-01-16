@@ -1,7 +1,7 @@
 let mapleader=","
 set bg=dark
 call pathogen#runtime_append_all_bundles()
-set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,enva,target/**
+set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,enva,target/**,**/node_modules/**,node_modules,**/target/*
 
 " this helps to throw onchange events for file watchers like Watchdog
 set noswapfile
@@ -239,3 +239,5 @@ au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
+" Copy current buffer path relative to root of VIM session to system clipboard
+nnoremap <Leader>yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
