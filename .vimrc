@@ -1,7 +1,7 @@
 let mapleader=","
 set bg=dark
 call pathogen#runtime_append_all_bundles()
-set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,enva,target/**,**/node_modules/**,node_modules,**/target/*
+set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,env,target/**,**/node_modules/**,node_modules,**/target/*,**/bower_components/**
 
 " this helps to throw onchange events for file watchers like Watchdog
 set noswapfile
@@ -32,7 +32,7 @@ if has('gui_running')
 
     " for airline
     let g:airline_enable_syntastic=1
-    let g:airline_theme='solarized2'
+    let g:airline_theme='r2kolor'
     let g:airline_powerline_fonts=1
     set laststatus=2
 
@@ -125,6 +125,10 @@ endif
 
 " use css for generated html files
 let html_use_css=1
+
+" allow project specific vimrc
+set exrc
+set secure
 
 " setup a funky statusline
 set statusline=
