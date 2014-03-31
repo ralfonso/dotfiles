@@ -1,4 +1,4 @@
-; based on the default vim-airline Kolor theme
+" based on the default vim-airline Kolor theme
 let g:airline#themes#r2kolor#palette = {}
 
 let s:N1 = [ '#e2e2e2' , '#4f3598' , 254 , 56  ]
