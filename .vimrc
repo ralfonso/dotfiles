@@ -1,6 +1,6 @@
+call pathogen#runtime_append_all_bundles()
 let mapleader=","
 set bg=dark
-call pathogen#runtime_append_all_bundles()
 set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,env,target/**,**/node_modules/**,node_modules,**/target/*,**/bower_components/**
 
 " this helps to throw onchange events for file watchers like Watchdog
@@ -25,40 +25,33 @@ if has('gui_running')
 	set guioptions-=L
 	set guioptions-=l
 	set guioptions+=r
-	set guioptions+=e
+	set guioptions-=e
 	set guioptions+=p
 	set cursorline
-	set number
-
-    " for airline
-    let g:airline_enable_syntastic=1
-    let g:airline_theme='r2kolor'
-    let g:airline_powerline_fonts=1
     set laststatus=2
 
-	" Control-Shift-PageUp drags the active tab page to the left (wraps around)
-	imap <silent> <C-S-PageUp> <C-o>:call <Sid>DragLeft()<Cr>
-	nmap <silent> <C-S-PageUp> :call <Sid>DragLeft()<Cr>
-
-	function! s:DragLeft()
-		let n = tabpagenr()
-		execute 'tabmove' (n == 1 ? '' : n - 2)
-		let &showtabline = &showtabline
-	endfunction
+    nnoremap <D-t> :enew!<CR>
+    nnoremap <D-t> <ESC>:enew!<CR>
+    nnoremap <D-w> :bdelete<CR>
+    nnoremap <D-w> <ESC>:bdelete<CR>
 
 	" Control-Shift-PageDown drags the active tab page to the right (wraps
 	" around
 	imap <silent> <C-S-PageDown> <C-o>:call <Sid>DragRight()<Cr>
 	nmap <silent> <C-S-PageDown> :call <Sid>DragRight()<Cr>
-
-	function! s:DragRight()
-		let n = tabpagenr()
-		execute 'tabmove' (n == tabpagenr('$') ? 0 : n)
-		let &showtabline = &showtabline
-	endfunction
-else
-    set laststatus=0
 endif
+
+set showtabline=2
+set number
+
+" for airline
+let g:airline_enable_syntastic=1
+let g:airline_theme='r2kolor'
+let g:airline_powerline_fonts=1
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
 
 " encoding
 set termencoding=utf-8
@@ -192,17 +185,18 @@ let g:py_select_leading_comments = 0
 map <M-Left> :tabprev<CR>
 map <M-Right> :tabnext<CR>
 map <F9> :set number!<CR>
-map <C-W>; :tabprev<CR>
-map <C-W>' :tabnext<CR>
-:nmap <C-t> :tabnew<cr>
-:imap <C-t> <ESC>:tabnew<cr>
+map <C-W>; :bprev<CR>
+map <C-W>' :bnext<CR>
+:nmap <C-t> :enew!<CR>
+:imap <C-t> <ESC>:enew!<CR>
+map <Leader>T :enew!<CR>
 
 " enable syntax hilighting "
 syntax on
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
 map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
-map <Leader>v :tab sp ~/.vimrc<CR>
+map <Leader>v :e ~/.vimrc<CR>
 map <silent> <Leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " vbell on osx, which doesn't work anyway
