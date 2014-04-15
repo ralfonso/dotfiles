@@ -7,6 +7,8 @@ set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,env,target/**,**
 set noswapfile
 set mouse=
 
+set hidden
+
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
 :autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
@@ -182,11 +184,9 @@ let g:py_select_leading_comments = 0
 " Make <space> in normal mode go down a page rather than left a character
 "noremap <space> <C-f>
 
-map <M-Left> :tabprev<CR>
-map <M-Right> :tabnext<CR>
 map <F9> :set number!<CR>
-map <C-W>; :bprev<CR>
-map <C-W>' :bnext<CR>
+map <C-W>; :bprev!<CR>
+map <C-W>' :bnext!<CR>
 :nmap <C-t> :enew!<CR>
 :imap <C-t> <ESC>:enew!<CR>
 map <Leader>T :enew!<CR>
