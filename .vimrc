@@ -41,10 +41,11 @@ if has('gui_running')
 	" around
 	imap <silent> <C-S-PageDown> <C-o>:call <Sid>DragRight()<Cr>
 	nmap <silent> <C-S-PageDown> :call <Sid>DragRight()<Cr>
+
+    set number
 endif
 
 set showtabline=2
-set number
 
 " for airline
 let g:airline_enable_syntastic=1

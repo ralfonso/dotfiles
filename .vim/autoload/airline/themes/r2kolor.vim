@@ -28,7 +28,7 @@ let g:airline#themes#r2kolor#palette.replace_modified = {
       \ }
 
 
-let s:V1 = [ '#242322' , '#e6987a' , 234 , 180 ]
+let s:V1 = [ '#e2e2e2' , '#e6987a' , 234 , 180 ]
 let s:V2 = [ '#dbc570' , '#242322' , 186 , 234 ]
 let s:V3 = [ '#e2e2e2' , '#4a4a4a' , 254 , 238 ]
 let g:airline#themes#r2kolor#palette.visual = airline#themes#generate_color_map(s:V1, s:V2, s:V3)
@@ -47,14 +47,23 @@ let g:airline#themes#r2kolor#palette.inactive_modified = {
 
 
 let g:airline#themes#r2kolor#palette.accents = {
-      \ 'red': [ '#d96e8a' , '' , 168 , ''  ]
+      \ 'red': [ '#4f3598' , '' , 168 , ''  ]
       \ }
 
 
 if !get(g:, 'loaded_ctrlp', 0)
   finish
 endif
+
 let g:airline#themes#r2kolor#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
       \ [ '#e2e2e2' , '#4a4a4a' , 254 , 238 , ''     ],
       \ [ '#e2e2e2' , '#242322' , 254 , 234 , ''     ],
       \ [ '#e2e2e2' , '#4f3598' , 254 , 56  , 'bold' ])
+
+let g:airline#themes#r2kolor#palette.tabline = {
+      \ 'airline_tab':     [ '#ffffff' , '#5f00af' ,  15 , 55  , '' ],
+      \ 'airline_tabsel':  [ '#ffffff' , '#875fd7' ,  15 , 98  , '' ],
+      \ 'airline_tabtype': [ '#ffffff' , '#875fd7' ,  15 , 98  , '' ],
+      \ 'airline_tabfill': [ '#ffffff' , '#4a4a4a' ,  15 , 233 , '' ],
+      \ 'airline_tabmod':  [ '#ffffff' , '#ff5f5f' ,  15 , 33  , '' ]
+      \ }
