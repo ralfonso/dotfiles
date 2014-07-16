@@ -1,4 +1,4 @@
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 let mapleader=","
 set bg=dark
 set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,env,target/**,**/node_modules/**,node_modules,**/target/*,**/bower_components/**
@@ -157,6 +157,7 @@ augroup vimrcEX
     au BufRead,BufNewFile *.pp   setfiletype puppet
     autocmd FileType html setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType css setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType scss setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType htmldjango setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType phtml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2
