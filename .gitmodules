@@ -25,9 +25,6 @@
 [submodule ".vim/bundle/vim-fireplace"]
 	path = .vim/bundle/vim-fireplace
 	url = git://github.com/tpope/vim-fireplace.git
-[submodule ".vim/bundle/rainbow_parentheses.vim"]
-	path = .vim/bundle/rainbow_parentheses.vim
-	url = https://github.com/kien/rainbow_parentheses.vim.git
 [submodule ".vim/bundle/vim-airline"]
 	path = .vim/bundle/vim-airline
 	url = https://github.com/bling/vim-airline
@@ -43,3 +40,12 @@
 [submodule ".vim/bundle/vim-jsx"]
 	path = .vim/bundle/vim-jsx
 	url = https://github.com/mxw/vim-jsx.git
+[submodule ".vim/bundle/vim-go"]
+	path = .vim/bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
+[submodule ".vim/bundle/tagbar"]
+	path = .vim/bundle/tagbar
+	url = https://github.com/majutsushi/tagbar.git
+[submodule ".vim/bundle/vim-go-templates"]
+	path = .vim/bundle/vim-go-templates
+	url = git@github.com:cespare/vim-go-templates.git
