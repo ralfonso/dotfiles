@@ -61,9 +61,11 @@ let g:airline#themes#r2kolor#palette.ctrlp = airline#extensions#ctrlp#generate_c
       \ [ '#e2e2e2' , '#4f3598' , 254 , 56  , 'bold' ])
 
 let g:airline#themes#r2kolor#palette.tabline = {
-      \ 'airline_tab':     [ '#ffffff' , '#5f00af' ,  15 , 55  , '' ],
+      \ 'airline_tab':     [ '#ffffff' , '#4a4a4a' ,  15 , 55  , '' ],
       \ 'airline_tabsel':  [ '#ffffff' , '#875fd7' ,  15 , 98  , '' ],
       \ 'airline_tabtype': [ '#ffffff' , '#875fd7' ,  15 , 98  , '' ],
-      \ 'airline_tabfill': [ '#ffffff' , '#4a4a4a' ,  15 , 233 , '' ],
+      \ 'airline_tabhid':  [ '#ffffff' , '#4a4a4a' ,  15 , 55 , '' ],
       \ 'airline_tabmod':  [ '#ffffff' , '#ff5f5f' ,  15 , 33  , '' ]
       \ }
+
+call airline#themes#solarized#refresh()

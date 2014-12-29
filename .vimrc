@@ -9,14 +9,22 @@ set mouse=
 
 set hidden
 
+" you can do this
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
 :autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 :autocmd InsertLeave * redraw!
 
+colorscheme solarized
+let g:solarized_contrast = "high"
+
 if has('gui_running')
     set mouse=a
-    colorscheme solarized
 
     "set guifont=Mensch:h12
     set guifont=Menlo\ for\ Powerline:h12
@@ -29,8 +37,6 @@ if has('gui_running')
 	set guioptions+=r
 	set guioptions-=e
 	set guioptions+=p
-	set cursorline
-    set laststatus=2
 
     nnoremap <D-t> :enew!<CR>
     nnoremap <D-t> <ESC>:enew!<CR>
@@ -42,9 +48,11 @@ if has('gui_running')
 	imap <silent> <C-S-PageDown> <C-o>:call <Sid>DragRight()<Cr>
 	nmap <silent> <C-S-PageDown> :call <Sid>DragRight()<Cr>
 
-    set number
 endif
 
+set number
+set cursorline
+set laststatus=2
 set showtabline=2
 
 " for airline
@@ -54,7 +62,12 @@ let g:airline_powerline_fonts=1
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline#extensions#tabline#fnamemod = ':.'
+
+" syntastic
+let g:syntastic_java_checkers=[]
+let g:syntastic_always_populate_loc_list = 1
 
 " encoding
 set termencoding=utf-8
@@ -81,9 +94,11 @@ set undolevels=2000
 set viminfo='1000,f1,:1000,/1000
 set wildmenu
 
-set nobackup
-set nowritebackup
-set noswapfile
+set backup
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupskip=/tmp/*,/private/tmp/*
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set writebackup
 
 " indent settings
 set ai
@@ -126,7 +141,7 @@ let html_use_css=1
 set exrc
 set secure
 
-" setup a funky statusline
+" setup a sweet statusline
 set statusline=
 set statusline+=%-3.3n\                      " buffer number
 set statusline+=%t\                          " file name
@@ -172,13 +187,7 @@ augroup vimrcEX
         \ formatoptions+=croq softtabstop=2 smartindent
         \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
         \ list listchars=tab:>.,trail:.,extends:#,nbsp:.
-
-
-    " Jump to last cursor position unless it's invalid or in an event handler
-    autocmd BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \   exe "normal g`\"" |
-        \ endif
+    autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4
 augroup END
 
 let g:py_select_leading_comments = 0
@@ -234,10 +243,22 @@ endfunction
 
 "inoremap <tab> <c-r>=Smart_TabComplete()<CR>
 
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
 " Copy current buffer path relative to root of VIM session to system clipboard
 nnoremap <Leader>yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
+
+" make tagbar a bit wider
+let g:tagbar_width = 60
+
+" some golang settings
+let g:go_highlight_methods = 1
+let g:go_highlight_functions = 1
+let g:go_fmt_command = "goimports"
+
+" ctrlp settings
+let g:ctrlp_working_path_mode = 'a'
+let g:ctrlp_max_files=20000
