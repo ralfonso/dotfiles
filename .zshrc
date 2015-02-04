@@ -42,9 +42,6 @@ source $ZSH/oh-my-zsh.sh
 # disable autocorrect
 unsetopt correct
 
-# Customize to your needs...
-export PATH=~/bin/:/usr/local/share/npm/bin:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin
-
 # imagemagick on osx
 export MAGICK_HOME="/usr/local/Cellar/imagemagick/6.7.7-6"
 export PATH="$MAGICK_HOME/bin:$PATH"
@@ -55,3 +52,9 @@ export LESS="-iMSrx4 -FX"
 
 # golang
 export GOPATH=~/projects/go/third-party/:~/projects/go/personal
+
+# tidy
+export HTML_TIDY=~/.tidyrc
+
+# the big one
+export PATH=~/bin/:/usr/local/share/npm/bin:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:${GOPATH//://bin:}/bin:/usr/local/opt/go/libexec/bin
