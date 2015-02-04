@@ -49,3 +49,6 @@
 [submodule ".vim/bundle/vim-go-templates"]
 	path = .vim/bundle/vim-go-templates
 	url = git@github.com:cespare/vim-go-templates.git
+[submodule ".vim/bundle/vim-ipython"]
+	path = .vim/bundle/vim-ipython
+	url = git@github.com:ivanov/vim-ipython.git
