@@ -262,3 +262,6 @@ let g:go_fmt_command = "goimports"
 " ctrlp settings
 let g:ctrlp_working_path_mode = 'a'
 let g:ctrlp_max_files=20000
+
+" NERDTree
+map <C-n> :NERDTreeToggle<cr>
