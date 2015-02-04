@@ -1,0 +1,4 @@
+// tidy via homebrew does not uncomment the directive to set this file so we must set it
+// manually via the -config option or via envvar HTML_TIDY
+quiet: yes
+indent: auto
