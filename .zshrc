@@ -58,3 +58,5 @@ export HTML_TIDY=~/.tidyrc
 
 # the big one
 export PATH=~/bin/:/usr/local/share/npm/bin:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:${GOPATH//://bin:}/bin:/usr/local/opt/go/libexec/bin
+
+tmux list-sessions 2> /dev/null

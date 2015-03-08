@@ -95,9 +95,9 @@ set viminfo='1000,f1,:1000,/1000
 set wildmenu
 
 set backup
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set backupdir=~/.vim-backup,~/.tmp,~/tmp,/var/tmp,/tmp
 set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-backup,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
 " indent settings
@@ -265,3 +265,7 @@ let g:ctrlp_max_files=20000
 
 " NERDTree
 map <C-n> :NERDTreeToggle<cr>
+
+" Window Settings
+" delete a buffer without closing its window
+map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
