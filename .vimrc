@@ -1,4 +1,4 @@
-call pathogen#infect()
+source ~/.vim/plugins.vim
 let mapleader=","
 set bg=dark
 set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,env,target/**,**/node_modules/**,node_modules,**/target/*,**/bower_components/**

@@ -1,60 +1,15 @@
 [submodule ".vim/bundle/command-t"]
 	path = .vim/bundle/command-t
 	url = git://git.wincent.com/command-t.git
-[submodule ".vim/bundle/nerdcommenter"]
-	path = .vim/bundle/nerdcommenter
-	url = http://github.com/scrooloose/nerdcommenter.git
-[submodule ".vim/bundle/vim-fugitive"]
-	path = .vim/bundle/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/bundle/syntastic"]
-	path = .vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
 [submodule ".vim/bundle/sparkup"]
 	path = .vim/bundle/sparkup
 	url = git://github.com/rstacruz/sparkup.git
 [submodule ".oh-my-zsh"]
 	path = .oh-my-zsh
 	url = https://github.com/robbyrussell/oh-my-zsh.git
-[submodule ".vim/bundle/nerdtree"]
-	path = .vim/bundle/nerdtree
-	url = https://github.com/scrooloose/nerdtree.git
 [submodule ".vim/bundle/vim-clojure-static"]
 	path = .vim/bundle/vim-clojure-static
 	url = https://github.com/guns/vim-clojure-static
-[submodule ".vim/bundle/vim-fireplace"]
-	path = .vim/bundle/vim-fireplace
-	url = git://github.com/tpope/vim-fireplace.git
-[submodule ".vim/bundle/vim-airline"]
-	path = .vim/bundle/vim-airline
-	url = https://github.com/bling/vim-airline
-[submodule ".vim/bundle/salt-vim"]
-	path = .vim/bundle/salt-vim
-	url = git@github.com:saltstack/salt-vim.git
-[submodule ".vim/bundle/ctrlp.vim"]
-	path = .vim/bundle/ctrlp.vim
-	url = https://github.com/kien/ctrlp.vim.git
-[submodule ".vim/bundle/vim-buffergator"]
-	path = .vim/bundle/vim-buffergator
-	url = git@github.com:jeetsukumaran/vim-buffergator.git
-[submodule ".vim/bundle/vim-jsx"]
-	path = .vim/bundle/vim-jsx
-	url = https://github.com/mxw/vim-jsx.git
-[submodule ".vim/bundle/vim-go"]
-	path = .vim/bundle/vim-go
-	url = https://github.com/fatih/vim-go.git
-[submodule ".vim/bundle/tagbar"]
-	path = .vim/bundle/tagbar
-	url = https://github.com/majutsushi/tagbar.git
-[submodule ".vim/bundle/vim-go-templates"]
-	path = .vim/bundle/vim-go-templates
-	url = git@github.com:cespare/vim-go-templates.git
-[submodule ".vim/bundle/vim-ipython"]
-	path = .vim/bundle/vim-ipython
-	url = git@github.com:ivanov/vim-ipython.git
 [submodule ".tmux/plugins/tpm"]
 	path = .tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule ".vim/bundle/ack.vim"]
-	path = .vim/bundle/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
