@@ -13,6 +13,8 @@ purp=$FG[097]
 PROMPT='%{$purp%}[%{$fg[$NCOLOR]%}%B%n%b%{$fb_bold[gray]%}@%{$fg[white]%}%m%{$reset_color%}:%{$fg[white]%}%45<...<%~%<<%{$purp%}]%{$reset_color%}%(!.#.$) '
 RPROMPT='$(git_prompt_info)'
 
+#PROMPT='%{$fg[$NCOLOR%}%m%{$purp%}$reset_color%}%(!.#.$) '
+
 # git theming
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[gray]%}(%{$fg_no_bold[yellow]%}%B"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%b%{$fg_bold[gray]%})%{$reset_color%} "

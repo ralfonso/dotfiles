@@ -56,7 +56,7 @@ set laststatus=2
 set showtabline=2
 
 " for airline
-let g:airline_enable_syntastic=1
+let g:airline#extensions#syntastic#enabled = 1
 let g:airline_theme='r2kolor'
 let g:airline_powerline_fonts=1
 " Enable the list of buffers
@@ -85,7 +85,7 @@ set novisualbell
 set shortmess+=aIt
 set showcmd
 set showfulltag
-set showmatch
+set noshowmatch
 set showmode
 set title
 set titlestring=VIM:\ %<%F
@@ -94,10 +94,10 @@ set undolevels=2000
 set viminfo='1000,f1,:1000,/1000
 set wildmenu
 
-set backup
-set backupdir=~/.vim-backup,~/.tmp,~/tmp,/var/tmp,/tmp
-set backupskip=/tmp/*,/private/tmp/*
-set directory=~/.vim-backup,~/.tmp,~/tmp,/var/tmp,/tmp
+set nobackup
+"set backupdir=~/.vim-backup,~/.tmp,~/tmp,/var/tmp,/tmp
+"set backupskip=/tmp/*,/private/tmp/*
+"set directory=~/.vim-backup,~/.tmp,~/tmp,/var/tmp,/tmp
 set writebackup
 
 " indent settings
@@ -178,6 +178,7 @@ augroup vimrcEX
     autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
     autocmd FileType clojure setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType perl setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4 omnifunc=phpcomplete#CompletePHP
     autocmd FileType xml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
@@ -269,3 +270,6 @@ map <C-n> :NERDTreeToggle<cr>
 " Window Settings
 " delete a buffer without closing its window
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
+
+" FZF
+set rtp+=~/.fzf

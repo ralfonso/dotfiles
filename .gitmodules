@@ -52,3 +52,9 @@
 [submodule ".vim/bundle/vim-ipython"]
 	path = .vim/bundle/vim-ipython
 	url = git@github.com:ivanov/vim-ipython.git
+[submodule ".tmux/plugins/tpm"]
+	path = .tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm
+[submodule ".vim/bundle/ack.vim"]
+	path = .vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim.git

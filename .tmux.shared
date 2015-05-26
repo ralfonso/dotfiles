@@ -1,6 +1,3 @@
-# vi mode keys
-setw -g mode-keys vi
-
 # make it easy to grab a pane and put it into the current window
 bind-key @ command-prompt -p "create pane from:"  "join-pane -s ':%%'"
 
