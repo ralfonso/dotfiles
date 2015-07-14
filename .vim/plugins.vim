@@ -10,5 +10,6 @@ Plug 'https://github.com/fatih/vim-go.git'
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/ivanov/vim-ipython.git'
 Plug 'https://github.com/mileszs/ack.vim.git'
+Plug 'https://github.com/qpkorr/vim-bufkill.git'
 
 call plug#end()

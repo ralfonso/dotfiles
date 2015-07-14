@@ -68,6 +68,9 @@ let g:airline#extensions#tabline#fnamemod = ':.'
 " syntastic
 let g:syntastic_java_checkers=[]
 let g:syntastic_always_populate_loc_list = 1
+" aint no one linting ruby
+let g:syntastic_ruby_checkers=[]
+let g:syntastic_enable_ruby_checker = 0
 
 " encoding
 set termencoding=utf-8

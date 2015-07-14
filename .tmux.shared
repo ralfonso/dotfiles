@@ -94,11 +94,6 @@ bind-key ^] choose-buffer
 # Make mouse useful in copy mode
 #set-window-option -g mode-mouse on
 
-# drew paste
-bind-key P run-shell 'tmux saveb -| curl -s -XPOST -H "Content-type: text/plain" --data-binary @- http://p.draines.com/'
-# x clipboard
-bind-key > run-shell "tmux saveb -| xclip -selection clipboard -i"
-
 # More straight forward key bindings for splitting
 #unbind-key %
 bind-key | split-window -h
