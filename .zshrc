@@ -40,6 +40,9 @@ plugins=(git osx)
 source $ZSH/oh-my-zsh.sh
 unalias gb
 
+# remove the oh-my-zsh alias for gb
+unalias gb
+
 # disable autocorrect
 unsetopt correct
 
@@ -58,6 +61,7 @@ export PATH=~/bin/:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:${GOPATH//://bi
 
 tmux list-sessions 2> /dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-eval "$(chef shell-init zsh)"
+
+type foo >/dev/null 2>&1 && eval "$(chef shell-init zsh)"
 
 source ~/.zshrc-priv
