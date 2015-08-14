@@ -38,6 +38,7 @@ fi
 plugins=(git osx)
 
 source $ZSH/oh-my-zsh.sh
+unalias gb
 
 # disable autocorrect
 unsetopt correct

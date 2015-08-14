@@ -1,5 +1,8 @@
 source ~/.vim/plugins.vim
 let mapleader=","
+" try space for leader too
+:nmap <space> ,
+
 set bg=dark
 set wildignore+=*.o,*obj,.git,*.pyc,**/static/assets/**,*.class,env,target/**,**/node_modules/**,node_modules,**/target/*,**/bower_components/**
 
@@ -117,6 +120,7 @@ set nocursorline
 ""set isk=@,48-57,_,192-255,-,.,@-@
 set nohlsearch
 set ignorecase
+set noincsearch
 
 " set a toggle for pasting input
 set pastetoggle=<F10>
@@ -199,12 +203,22 @@ let g:py_select_leading_comments = 0
 " Make <space> in normal mode go down a page rather than left a character
 "noremap <space> <C-f>
 
-map <F9> :set number!<CR>
-map <C-W>; :bprev!<CR>
-map <C-W>' :bnext!<CR>
-:nmap <C-t> :enew!<CR>
-:imap <C-t> <ESC>:enew!<CR>
-map <Leader>T :enew!<CR>
+" To open a new empty buffer
+" This replaces :tabnew which I used to bind to this mapping
+nmap <leader>T :enew<cr>
+
+" Move to the next buffer
+nmap <leader>' :bnext<CR>
+
+" Move to the previous buffer
+nmap <leader>; :bprevious<CR>
+
+" Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>bq :bp <BAR> bd #<CR>
+
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
 
 " enable syntax hilighting "
 syntax on
@@ -217,10 +231,10 @@ map <silent> <Leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 " vbell on osx, which doesn't work anyway
 set vb
 
-runtime macros/matchit.vim
+" disable the scratch buffer for omnicomplete
+set completeopt-=preview
 
-" load project-based tags
-set tags=~/.vim/mytags/$PROJ
+runtime macros/matchit.vim
 
 let vimfiles=$HOME . "/.vim"
 
@@ -263,10 +277,6 @@ let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_fmt_command = "goimports"
 
-" ctrlp settings
-let g:ctrlp_working_path_mode = 'a'
-let g:ctrlp_max_files=20000
-
 " NERDTree
 map <C-n> :NERDTreeToggle<cr>
 
@@ -275,4 +285,4 @@ map <C-n> :NERDTreeToggle<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " FZF
-set rtp+=~/.fzf
+nnoremap <silent> <Leader><Leader> :FZF! -m<CR>
