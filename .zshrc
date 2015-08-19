@@ -38,7 +38,6 @@ fi
 plugins=(git osx)
 
 source $ZSH/oh-my-zsh.sh
-unalias gb
 
 # remove the oh-my-zsh alias for gb
 unalias gb

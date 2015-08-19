@@ -23,6 +23,7 @@ noremap <Right> <NOP>
 :autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
 :autocmd InsertLeave * redraw!
 
+set background=dark
 colorscheme solarized
 let g:solarized_contrast = "high"
 
@@ -60,13 +61,14 @@ set showtabline=2
 
 " for airline
 let g:airline#extensions#syntastic#enabled = 1
-let g:airline_theme='solarizedr2'
+let g:airline_theme='r2ish'
 let g:airline_powerline_fonts=1
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
 " let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#fnamemod = ':.'
+let g:airline_solarized_bg='dark'
 
 " syntastic
 let g:syntastic_java_checkers=[]

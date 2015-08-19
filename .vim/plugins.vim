@@ -12,5 +12,6 @@ Plug 'https://github.com/mileszs/ack.vim.git'
 Plug 'https://github.com/qpkorr/vim-bufkill.git'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'https://github.com/ajh17/VimCompletesMe'
+Plug 'https://github.com/paranoida/vim-airlineish.git'
 
 call plug#end()
