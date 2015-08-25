@@ -287,4 +287,4 @@ map <C-n> :NERDTreeToggle<cr>
 map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " FZF
-nnoremap <silent> <Leader><Leader> :FZF! -m<CR>
+nnoremap <silent> <Leader><Leader> :FZF -m<CR>
