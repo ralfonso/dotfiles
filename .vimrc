@@ -1,5 +1,6 @@
 source ~/.vim/plugins.vim
 let mapleader=","
+
 " try space for leader too
 :nmap <space> ,
 
@@ -27,38 +28,6 @@ set background=dark
 colorscheme solarized
 let g:solarized_contrast = "high"
 
-if has('gui_running')
-    set mouse=a
-
-    "set guifont=Mensch:h12
-    set guifont=Menlo\ for\ Powerline:h12
-	set guioptions-=T
-	set guioptions+=g
-	set guioptions+=i
-	set guioptions+=t
-	set guioptions-=L
-	set guioptions-=l
-	set guioptions+=r
-	set guioptions-=e
-	set guioptions+=p
-
-    nnoremap <D-t> :enew!<CR>
-    nnoremap <D-t> <ESC>:enew!<CR>
-    nnoremap <D-w> :bdelete<CR>
-    nnoremap <D-w> <ESC>:bdelete<CR>
-
-	" Control-Shift-PageDown drags the active tab page to the right (wraps
-	" around
-	imap <silent> <C-S-PageDown> <C-o>:call <Sid>DragRight()<Cr>
-	nmap <silent> <C-S-PageDown> :call <Sid>DragRight()<Cr>
-
-endif
-
-set number
-set cursorline
-set laststatus=2
-set showtabline=2
-
 " for airline
 let g:airline#extensions#syntastic#enabled = 1
 let g:airline_theme='r2ish'
@@ -77,9 +46,16 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_ruby_checkers=[]
 let g:syntastic_enable_ruby_checker = 0
 
+set number
+set cursorline
+set laststatus=2
+set showtabline=2
+
 " encoding
-set termencoding=utf-8
-set encoding=utf-8
+if has("vim_starting")
+    set termencoding=utf-8
+    set encoding=utf-8
+endif
 
 set nolist
 
@@ -115,10 +91,12 @@ set shiftwidth=4
 set tabstop=4
 
 " folding
-set foldmethod=marker
+set foldmethod=indent
+set foldnestmax=10      "deepest fold is 10 levels
+set nofoldenable        "dont fold by default
+set foldlevel=1         "this is just what i use
 
 " search options
-set nocursorline
 ""set isk=@,48-57,_,192-255,-,.,@-@
 set nohlsearch
 set ignorecase
@@ -215,17 +193,21 @@ nmap <leader>' :bnext<CR>
 " Move to the previous buffer
 nmap <leader>; :bprevious<CR>
 
-" Close the current buffer and move to the previous one
-" This replicates the idea of closing a tab
-nmap <leader>bq :bp <BAR> bd #<CR>
-
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
 
+" tabs
+ noremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnext<Space>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+
 " enable syntax hilighting "
 syntax on
-map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
-map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
 
 map <Leader>v :e ~/.vimrc<CR>
 map <silent> <Leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
@@ -233,45 +215,7 @@ map <silent> <Leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 " vbell on osx, which doesn't work anyway
 set vb
 
-" disable the scratch buffer for omnicomplete
-set completeopt-=preview
-
-runtime macros/matchit.vim
-
-let vimfiles=$HOME . "/.vim"
-
-function! Smart_TabComplete()
-  let line = getline('.')                         " current line
-
-  let substr = strpart(line, -1, col('.')+1)      " from the start of the current
-                                                  " line to one character right
-                                                  " of the cursor
-  let substr = matchstr(substr, "[^ \t]*$")       " word till cursor
-  if (strlen(substr)==0)                          " nothing to match on empty string
-    return "\<tab>"
-  endif
-  let has_period = match(substr, '\.') != -1      " position of period, if any
-  let has_slash = match(substr, '\/') != -1       " position of slash, if any
-  if (!has_period && !has_slash)
-    return "\<C-X>\<C-P>"                         " existing text matching
-  elseif ( has_slash )
-    return "\<C-X>\<C-F>"                         " file matching
-  else
-    return "\<C-X>\<C-O>"                         " plugin matching
-  endif
-endfunction
-
-"inoremap <tab> <c-r>=Smart_TabComplete()<CR>
-
-"au VimEnter * RainbowParenthesesToggle
-"au Syntax * RainbowParenthesesLoadRound
-"au Syntax * RainbowParenthesesLoadSquare
-"au Syntax * RainbowParenthesesLoadBraces
-
-" Copy current buffer path relative to root of VIM session to system clipboard
-nnoremap <Leader>yp :let @*=expand("%")<cr>:echo "Copied file path to clipboard"<cr>
-
-" make tagbar a bit wider
+nmap <leader>t :TagbarToggle<cr>
 let g:tagbar_width = 60
 
 " some golang settings
@@ -281,10 +225,6 @@ let g:go_fmt_command = "goimports"
 
 " NERDTree
 map <C-n> :NERDTreeToggle<cr>
-
-" Window Settings
-" delete a buffer without closing its window
-map <leader>q :bp<bar>sp<bar>bn<bar>bd<CR>
 
 " FZF
 nnoremap <silent> <Leader><Leader> :FZF -m<CR>
