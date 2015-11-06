@@ -7,13 +7,19 @@
 # if superuser make the username green
 if [ $UID -eq 0 ]; then NCOLOR="green"; else NCOLOR="white"; fi
 
-purp=$FG[097]
+if [[ -z $ZSH_THEME_COLOR_CODE ]];
+then
+    # purple
+    theme_color=$FG[097]
+else
+    theme_color=$FG[$ZSH_THEME_COLOR_CODE]
+fi
 
 # prompt
-PROMPT='%{$purp%}[%{$fg[$NCOLOR]%}%B%n%b%{$fb_bold[gray]%}@%{$fg[white]%}%m%{$reset_color%}:%{$fg[white]%}%45<...<%~%<<%{$purp%}]%{$reset_color%}%(!.#.$) '
+PROMPT='%{$theme_color%}[%{$fg[$NCOLOR]%}%B%n%b%{$fb_bold[gray]%}@%{$fg[white]%}%m%{$reset_color%}:%{$fg[white]%}%45<...<%~%<<%{$theme_color%}]%{$reset_color%}%(!.#.$) '
 RPROMPT='$(git_prompt_info)'
 
-#PROMPT='%{$fg[$NCOLOR%}%m%{$purp%}$reset_color%}%(!.#.$) '
+#PROMPT='%{$fg[$NCOLOR%}%m%{$theme_color%}$reset_color%}%(!.#.$) '
 
 # git theming
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[gray]%}(%{$fg_no_bold[yellow]%}%B"
