@@ -63,4 +63,7 @@ tmux list-sessions 2> /dev/null
 
 type foo >/dev/null 2>&1 && eval "$(chef shell-init zsh)"
 
-source ~/.zshrc-priv
+if [[ -e ~/.zshrc-priv ]];
+then
+    source ~/.zshrc-priv
+fi
