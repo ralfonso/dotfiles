@@ -2,6 +2,12 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 
+# we load this early for the theme color, but this might need to be broken into before/after files
+if [[ -e ~/.zshrc-priv ]];
+then
+    source ~/.zshrc-priv
+fi
+
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
@@ -62,8 +68,3 @@ tmux list-sessions 2> /dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 type foo >/dev/null 2>&1 && eval "$(chef shell-init zsh)"
-
-if [[ -e ~/.zshrc-priv ]];
-then
-    source ~/.zshrc-priv
-fi
