@@ -68,3 +68,4 @@ tmux list-sessions 2> /dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 type foo >/dev/null 2>&1 && eval "$(chef shell-init zsh)"
+export GO15VENDOREXPERIMENT=1
