@@ -25,7 +25,9 @@ noremap <Right> <NOP>
 :autocmd InsertLeave * redraw!
 
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+let base16colorspace=256
+colorscheme base16-monokai
 let g:solarized_contrast = "high"
 
 " for airline
@@ -169,6 +171,7 @@ augroup vimrcEX
     autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4 omnifunc=phpcomplete#CompletePHP
     autocmd FileType xml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType make setlocal noexpandtab
     autocmd FileType puppet setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType markdown setlocal textwidth=79
     autocmd FileType coffeescript setlocal expandtab shiftwidth=2 tabstop=2
@@ -176,6 +179,9 @@ augroup vimrcEX
         \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
         \ list listchars=tab:>.,trail:.,extends:#,nbsp:.
     autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4
+    autocmd FileType proto setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType sh setlocal expandtab shiftwidth=2 tabstop=2
 augroup END
 
 let g:py_select_leading_comments = 0

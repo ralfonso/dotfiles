@@ -12,7 +12,7 @@ fi
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="r2"
+ZSH_THEME="r2-simple"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -56,16 +56,23 @@ export PAGER=less
 export LESS="-iMSrx4 -FX"
 
 # golang
-export GOPATH=~/code/go/third-party/:~/code/personal/go
+export GOPATH=~/code/go/third_party/:~/code/personal/go
 
 # tidy
 export HTML_TIDY=~/.tidyrc
 
 # the big one
-export PATH=~/bin/:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:${GOPATH//://bin:}/bin:/usr/local/opt/go/libexec/bin
+export PATH=~/bin/:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/go/libexec/bin
 
 tmux list-sessions 2> /dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 type foo >/dev/null 2>&1 && eval "$(chef shell-init zsh)"
 export GO15VENDOREXPERIMENT=1
+
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+# direnv
+eval "$(direnv hook zsh)"
