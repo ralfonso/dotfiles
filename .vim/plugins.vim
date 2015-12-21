@@ -14,5 +14,6 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'https://github.com/ajh17/VimCompletesMe'
 Plug 'https://github.com/paranoida/vim-airlineish.git'
 Plug 'chriskempson/base16-vim'
+Plug 'https://github.com/airblade/vim-gitgutter'
 
 call plug#end()

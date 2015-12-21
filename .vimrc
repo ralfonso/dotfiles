@@ -234,3 +234,34 @@ map <C-n> :NERDTreeToggle<cr>
 
 " FZF
 nnoremap <silent> <Leader><Leader> :FZF -m<CR>
+
+" FZF Buffers
+function! s:buflist()
+  redir => ls
+  silent ls
+  redir END
+  return split(ls, '\n')
+endfunction
+
+function! s:bufopen(e)
+  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
+endfunction
+
+nnoremap <silent> <Leader><Space> :call fzf#run({
+\   'source':  reverse(<sid>buflist()),
+\   'sink':    function('<sid>bufopen'),
+\   'options': '+m',
+\   'down':    len(<sid>buflist()) + 2
+\ })<CR>
+
+" gitgutter
+set updatetime=250
+
+" regenerate gotags on save
+" au BufWritePost *.go silent! !gotags -R &> /dev/null &
+function! Tags_to_git_dir()
+    if exists('b:git_dir')
+        execute "silent! !gotags -R . > " . b:git_dir . "/tags &"
+    endif
+endfunction
+au BufWritePost *.go :call Tags_to_git_dir()
