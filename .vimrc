@@ -257,11 +257,14 @@ nnoremap <silent> <Leader><Space> :call fzf#run({
 " gitgutter
 set updatetime=250
 
-" regenerate gotags on save
-" au BufWritePost *.go silent! !gotags -R &> /dev/null &
+" fix the YouCompleteMe scratch window
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+" regenerate gotags on save. this really only works well for users of fugitive
+" and/or vim-git since it sets b:git_dir
 function! Tags_to_git_dir()
     if exists('b:git_dir')
-        execute "silent! !gotags -R . > " . b:git_dir . "/tags &"
+        execute "silent! !cd " . b:git_dir . " && gotags -R .. > " . b:git_dir . "/tags &"
     endif
 endfunction
 au BufWritePost *.go :call Tags_to_git_dir()
