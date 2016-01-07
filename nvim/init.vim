@@ -1,4 +1,4 @@
-source ~/.vim/plugins.vim
+source ~/.config/nvim/plugins.vim
 let mapleader=","
 
 " try space for leader too

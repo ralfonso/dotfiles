@@ -1,1 +1,0 @@
-/Users/r2/.vimrc
