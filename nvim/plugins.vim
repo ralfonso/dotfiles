@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/config/nvim/plugged')
 
 Plug 'http://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
