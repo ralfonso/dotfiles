@@ -1,6 +1,11 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/.oh-my-zsh
+ZSH=$HOME/dotfiles/.oh-my-zsh
 ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
+
+# ugh, colors don't work 100% in Terminator
+# Base16 Shell
+BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
+[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # we load this early for the theme color, but this might need to be broken into before/after files
 if [[ -e ~/.zshrc-priv ]];
@@ -62,7 +67,18 @@ export GOPATH=~/code/go/third_party/:~/code/personal/go
 export HTML_TIDY=~/.tidyrc
 
 # the big one
-export PATH=~/bin/:/usr/local/bin/:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/go/libexec/bin
+unset PATH
+export PATH=~/bin:~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/go/libexec/bin
+
+# Linux (mostly linuxbrew)
+os=$(uname -o)
+if [[ ( "$os" == "Linux" ) || ( "$os" == "GNU/Linux" ) ]]; then
+    export PATH="$HOME/code/ext/linuxbrew/bin:$PATH"
+    export MANPATH="$HOME/code/ext/linuxbrew/share/man:$MANPATH"
+    export INFOPATH="$HOME/code/ext/linuxbrew/share/info:$INFOPATH"
+    # fix pkg-config
+    export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig:/usr/lib64/pkgconfig:/usr/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib64/pkgconfig:/usr/share/pkgconfig:$PKG_CONFIG_PATH
+fi
 
 tmux list-sessions 2> /dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -71,8 +87,20 @@ type foo >/dev/null 2>&1 && eval "$(chef shell-init zsh)"
 export GO15VENDOREXPERIMENT=1
 
 # Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
+BASE16_SHELL="$HOME/code/ext/base16-shell/base16-monokai.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# a bit weird
+export COLORTERM=xterm-256color
+export NVIM_TUI_ENABLE_TRUE_COLOR=1
+
+# detect i3 and export gnome keyring vars
+if grep -q 'Name: i3' <<<$(wmctrl -m); then
+	export $(gnome-keyring-daemon -s)
+fi
+
+# I don't want this from oh-my-zsh
+unalias gvt

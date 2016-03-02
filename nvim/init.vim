@@ -25,7 +25,6 @@ noremap <Right> <NOP>
 :autocmd InsertLeave * redraw!
 
 set background=dark
-"colorscheme solarized
 let base16colorspace=256
 colorscheme base16-monokai
 let g:solarized_contrast = "high"
@@ -215,8 +214,8 @@ nnoremap td  :tabclose<CR>
 " enable syntax hilighting "
 syntax on
 
-map <Leader>v :e ~/.vimrc<CR>
-map <silent> <Leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <Leader>v :e ~/.config/nvim/init.vim<CR>
+map <silent> <Leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " vbell on osx, which doesn't work anyway
 set vb

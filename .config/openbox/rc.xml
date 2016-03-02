@@ -118,7 +118,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>2</number>
+    <number>3</number>
     <firstdesk>1</firstdesk>
     <names>
       <!-- set names up here if you want to, like this:
@@ -548,9 +548,11 @@
           <shaded>no</shaded>
           <then>
             <action name="Shade"/>
+            <!--
             <action name="FocusToBottom"/>
             <action name="Unfocus"/>
             <action name="Lower"/>
+            -->
           </then>
         </action>
       </mousebind>
