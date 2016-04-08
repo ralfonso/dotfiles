@@ -61,14 +61,20 @@ export PAGER=less
 export LESS="-iMSrx4 -FX"
 
 # golang
-export GOPATH=~/code/go/third_party/:~/code/personal/go
+export GOPATH=~/code/go/third_party:~/code/personal/go
 
 # tidy
 export HTML_TIDY=~/.tidyrc
 
+# path for Go binaries
+GOBINPATH=~/code/personal/go/bin:~/code/go/third_party/bin
+
+# path for personal bins
+PERSONALBIN=~/bin:~/.local/bin
+
 # the big one
 unset PATH
-export PATH=~/bin:~/.local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/opt/go/libexec/bin
+export PATH=$PERSONALBIN:$GOBINPATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Linux (mostly linuxbrew)
 os=$(uname -o)
@@ -102,5 +108,11 @@ if grep -q 'Name: i3' <<<$(wmctrl -m); then
 	export $(gnome-keyring-daemon -s)
 fi
 
-# I don't want this from oh-my-zsh
-unalias gvt
+# Chef Kitchen
+export KITCHEN_LOCAL_YAML="$HOME/.kitchen/config.yml"
+
+# coolcoolcool
+type nvim >/dev/null 2>&1 && alias vi=nvim
+
+# alias for todo app
+type todo.sh >/dev/null 2>&1 && alias t=todo.sh

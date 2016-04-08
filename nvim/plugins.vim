@@ -1,4 +1,4 @@
-call plug#begin('~/config/nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 Plug 'http://github.com/scrooloose/nerdcommenter.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
@@ -15,5 +15,6 @@ Plug 'https://github.com/ajh17/VimCompletesMe'
 Plug 'https://github.com/paranoida/vim-airlineish.git'
 Plug 'chriskempson/base16-vim'
 Plug 'https://github.com/airblade/vim-gitgutter'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()

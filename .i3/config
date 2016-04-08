@@ -15,7 +15,7 @@ set $mod Mod1
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Mensch 11
+font pango:Noto Sans 9.5
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -26,17 +26,9 @@ font pango:Mensch 11
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
-# start a terminal
-bindsym $mod+Return exec x-terminal-emulator
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-
-# rofi instead
-bindsym $mod+space exec ~/.local/bin/rofi -show run -lines 8 -eh 2 -padding 10 -font "Droid Sans 16"
 #
 #
 # There also is the (new) i3-dmenu-desktop which only displays applications
@@ -97,17 +89,19 @@ bindsym $mod+d focus child
 set $ws1 term
 set $ws2 www
 set $ws3 code
+set $ws5 vid
 
 workspace $ws1 output DP-0
 workspace $ws2 output DP-0
 workspace $ws3 output DP-2
+workspace $ws5 output DP-2
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
+bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
@@ -119,7 +113,7 @@ bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
@@ -130,11 +124,41 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
+# scratchpad
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
+# EXECS!
+# start a terminal
+bindsym $mod+Return exec x-terminal-emulator
+
+# start cmus (in scratchpad)
+bindsym $mod+m exec x-terminal-emulator -x cmus -t "cmus-scratchpad"
+
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run
+
+# rofi instead
+bindsym $mod+space exec ~/.local/bin/rofi -show run -lines 8 -eh 2 -padding 10 -font "Droid Sans 16"
+
+# manual screen lock
+bindsym $mod+Ctrl+l exec i3lock
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # screenshots
-bindsym --release Control+Shift+Mod1+4 exec shutter -s
+bindsym --release mod4+control+shift+4 exec ~/bin/spree-shot.sh
+
+# cmus bindings
+#bindsym XF86AudioRaiseVolume exec cmus-remote --volume +10%
+#bindsym XF86AudioLowerVolume exec cmus-remote --volume -10%
+#bindsym XF86AudioMute exec cmus-remote --volume 0%
+bindsym XF86AudioPlay exec ~/bin/player-control.sh play
+bindsym XF86AudioStop exec ~/bin/player-control.sh stop
+bindsym XF86AudioPrev exec ~/bin/player-control.sh previous
+bindsym XF86AudioNext exec ~/bin/player-control.sh next
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -144,16 +168,16 @@ mode "resize" {
         # Pressing right will grow the window’s width.
         # Pressing up will shrink the window’s height.
         # Pressing down will grow the window’s height.
-        bindsym j resize shrink width 10 px or 10 ppt
-        bindsym k resize grow height 10 px or 10 ppt
-        bindsym l resize shrink height 10 px or 10 ppt
-        bindsym semicolon resize grow width 10 px or 10 ppt
+        bindsym j resize shrink width 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
+        bindsym l resize shrink height 5 px or 5 ppt
+        bindsym semicolon resize grow width 5 px or 5 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 5 px or 5 ppt
+        bindsym Down resize grow height 5 px or 5 ppt
+        bindsym Up resize shrink height 5 px or 5 ppt
+        bindsym Right resize grow width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -161,7 +185,8 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-set $bg-color            #0088CC
+# color vars
+set $bg-color            #7E97B7
 set $inactive-bg-color   #333333
 set $text-color          #f3f4f5
 set $inactive-text-color #f3f4f5
@@ -177,7 +202,9 @@ client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color      
 
 # bar
 bar {
-    status_command i3blocks -c /home/r2/.i3/i3blocks.conf
+    position bottom
+    status_command ~/.local/bin/i3blocks -c /home/r2/.i3/i3blocks.conf
+    separator_symbol ""
     colors {
         background $inactive-bg-color
         separator #757575
@@ -194,6 +221,19 @@ assign [class="chromium"] www
 assign [class="google-chrome"] www
 assign [class="virt-manager"] virt
 assign [class="virt-viewer"] virt
+assign [class="Slack" instance="slack"] term
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="feh"] floating enable
+for_window [class="zoom"] floating enable
+for_window [class="Steam"] floating enable
+for_window [class="Viewnior" instance="viewnior"] floating enable
+for_window [class="Gucharmap" instance="gucharmap"] floating enable
+for_window [title="cmus-scratchpad"] move scratchpad
+for_window [class="google-chrome" window_role="pop-up"] floating enable
+
 exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
 exec ~/.xinitrc
 exec ~/.screenlayout/dual-4k.sh
+
+# screen lock after 10m
+exec --no-startup-id xautolock -time 10 -locker i3lock

@@ -19,6 +19,9 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" autocomplete
+set completeopt=longest,menu
+
 :highlight ExtraWhitespace ctermbg=red guibg=red
 :match ExtraWhitespace /\s\+$/
 :autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
@@ -181,6 +184,7 @@ augroup vimrcEX
     autocmd FileType proto setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType sh setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2
 augroup END
 
 let g:py_select_leading_comments = 0
@@ -227,6 +231,34 @@ let g:tagbar_width = 60
 let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_fmt_command = "goimports"
+
+let g:tagbar_type_go = {
+    \ 'ctagstype' : 'go',
+    \ 'kinds'     : [
+        \ 'p:package',
+        \ 'i:imports:1',
+        \ 'c:constants',
+        \ 'v:variables',
+        \ 't:types',
+        \ 'n:interfaces',
+        \ 'w:fields',
+        \ 'e:embedded',
+        \ 'm:methods',
+        \ 'r:constructor',
+        \ 'f:functions'
+    \ ],
+    \ 'sro' : '.',
+    \ 'kind2scope' : {
+        \ 't' : 'ctype',
+        \ 'n' : 'ntype'
+    \ },
+    \ 'scope2kind' : {
+        \ 'ctype' : 't',
+        \ 'ntype' : 'n'
+    \ },
+    \ 'ctagsbin'  : 'gotags',
+    \ 'ctagsargs' : '-sort -silent'
+    \ }
 
 " NERDTree
 map <C-n> :NERDTreeToggle<cr>
