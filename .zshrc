@@ -72,9 +72,6 @@ GOBINPATH=~/code/personal/go/bin:~/code/go/third_party/bin
 # path for personal bins
 PERSONALBIN=~/bin:~/.local/bin
 
-# the big one
-unset PATH
-export PATH=$PERSONALBIN:$GOBINPATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 # Linux (mostly linuxbrew)
 os=$(uname -o)
@@ -85,6 +82,9 @@ if [[ ( "$os" == "Linux" ) || ( "$os" == "GNU/Linux" ) ]]; then
     # fix pkg-config
     export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig:/usr/lib64/pkgconfig:/usr/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib64/pkgconfig:/usr/share/pkgconfig:$PKG_CONFIG_PATH
 fi
+
+# the big one
+export PATH=$PERSONALBIN:$GOBINPATH:$PATH
 
 tmux list-sessions 2> /dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

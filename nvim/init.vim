@@ -202,9 +202,6 @@ nmap <leader>' :bnext<CR>
 " Move to the previous buffer
 nmap <leader>; :bprevious<CR>
 
-" Show all open buffers and their status
-nmap <leader>bl :ls<CR>
-
 " tabs
  noremap th  :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
@@ -264,38 +261,11 @@ let g:tagbar_type_go = {
 map <C-n> :NERDTreeToggle<cr>
 
 " FZF
-nnoremap <silent> <Leader><Leader> :FZF -m<CR>
-
-" FZF Buffers
-function! s:buflist()
-  redir => ls
-  silent ls
-  redir END
-  return split(ls, '\n')
-endfunction
-
-function! s:bufopen(e)
-  execute 'buffer' matchstr(a:e, '^[ 0-9]*')
-endfunction
-
-nnoremap <silent> <Leader><Space> :call fzf#run({
-\   'source':  reverse(<sid>buflist()),
-\   'sink':    function('<sid>bufopen'),
-\   'options': '+m',
-\   'down':    len(<sid>buflist()) + 2
-\ })<CR>
+nnoremap <silent> <Leader><Leader> :Files<cr>
+nnoremap <silent> <Leader><Space> :Buffers<cr>
 
 " gitgutter
 set updatetime=250
 
 " fix the YouCompleteMe scratch window
 let g:ycm_autoclose_preview_window_after_completion = 1
-
-" regenerate gotags on save. this really only works well for users of fugitive
-" and/or vim-git since it sets b:git_dir
-function! Tags_to_git_dir()
-    if exists('b:git_dir')
-        execute "silent! !cd " . b:git_dir . " && gotags -R .. > " . b:git_dir . "/tags &"
-    endif
-endfunction
-au BufWritePost *.go :call Tags_to_git_dir()

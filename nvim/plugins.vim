@@ -16,5 +16,6 @@ Plug 'https://github.com/paranoida/vim-airlineish.git'
 Plug 'chriskempson/base16-vim'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
+Plug 'junegunn/fzf.vim'
 
 call plug#end()

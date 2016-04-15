@@ -15,7 +15,7 @@ set $mod Mod1
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Noto Sans 9.5
+font pango:Mensch, NerdFontPlusFontAwesome 9
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -155,7 +155,7 @@ bindsym --release mod4+control+shift+4 exec ~/bin/spree-shot.sh
 #bindsym XF86AudioRaiseVolume exec cmus-remote --volume +10%
 #bindsym XF86AudioLowerVolume exec cmus-remote --volume -10%
 #bindsym XF86AudioMute exec cmus-remote --volume 0%
-bindsym XF86AudioPlay exec ~/bin/player-control.sh play
+bindsym XF86AudioPlay exec ~/bin/player-control.sh playpause
 bindsym XF86AudioStop exec ~/bin/player-control.sh stop
 bindsym XF86AudioPrev exec ~/bin/player-control.sh previous
 bindsym XF86AudioNext exec ~/bin/player-control.sh next
@@ -185,20 +185,20 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# color vars
-set $bg-color            #7E97B7
-set $inactive-bg-color   #333333
-set $text-color          #f3f4f5
-set $inactive-text-color #f3f4f5
-set $urgent-bg-color     #E53935
-set $indicator           #875FD7
+# Color names.
+set $background  #282828
+set $foreground  #d8d8d8
+set $focused     #2d2d2d
+set $unfocused   #585858
+set $urgent      #ab4642
 
-# window colors
-#                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $text-color          $indicator
-client.unfocused        $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator
-client.focused_inactive $inactive-bg-color  $inactive-bg-color $inactive-text-color $indicator
-client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color          $indicator
+# Window manager colors.
+# Class                  Border       Background   Text         Indicator
+client.focused           $focused     $focused     $foreground  $focused
+client.focused_inactive  $focused     $focused     $unfocused   $focused
+client.unfocused         $background  $background  $unfocused   $background
+client.urgent            $urgent      $urgent      $background  $urgent
+client.background                     $background
 
 # bar
 bar {
@@ -206,12 +206,15 @@ bar {
     status_command ~/.local/bin/i3blocks -c /home/r2/.i3/i3blocks.conf
     separator_symbol ""
     colors {
-        background $inactive-bg-color
-        separator #757575
-        #                  border             background         text
-        focused_workspace  $bg-color          $bg-color          $text-color
-        inactive_workspace $inactive-bg-color $inactive-bg-color $inactive-text-color
-        urgent_workspace   $urgent-bg-color   $urgent-bg-color   $text-color
+        separator   #757575
+        background  $background
+        statusline  $foreground
+        separator   $unfocused
+        # Class             Border       Background   Text
+        focused_workspace   $background  $background  $foreground
+        active_workspace    $background  $background  $foreground
+        inactive_workspace  $background  $background  $unfocused
+        urgent_workspace    $background  $background  $urgent
     }
     tray_output DP-0
 }
