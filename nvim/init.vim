@@ -50,6 +50,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_ruby_checkers=[]
 let g:syntastic_enable_ruby_checker = 0
 
+" vim-go is enough
+let g:syntastic_go_checkers=[]
+let g:syntastic_enable_go_checker = 0
+
 set number
 set cursorline
 set laststatus=2
@@ -228,6 +232,7 @@ let g:tagbar_width = 60
 let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_fmt_command = "goimports"
+let g:go_list_type = "quickfix"
 
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',

@@ -15,7 +15,7 @@ set $mod Mod1
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Mensch, NerdFontPlusFontAwesome 9
+font pango:DejaVu Sans 15
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -140,7 +140,7 @@ bindsym $mod+m exec x-terminal-emulator -x cmus -t "cmus-scratchpad"
 #bindsym $mod+d exec dmenu_run
 
 # rofi instead
-bindsym $mod+space exec ~/.local/bin/rofi -show run -lines 8 -eh 2 -padding 10 -font "Droid Sans 16"
+bindsym $mod+space exec ~/.local/bin/rofi -show run -lines 8 -eh 2 -padding 10 -modi drun,run,window
 
 # manual screen lock
 bindsym $mod+Ctrl+l exec i3lock
@@ -229,14 +229,18 @@ for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="zoom"] floating enable
 for_window [class="Steam"] floating enable
+for_window [class="vlc"] floating enable
 for_window [class="Viewnior" instance="viewnior"] floating enable
 for_window [class="Gucharmap" instance="gucharmap"] floating enable
 for_window [title="cmus-scratchpad"] move scratchpad
 for_window [class="google-chrome" window_role="pop-up"] floating enable
+for_window [class="Transmission-gtk" instance="transmission-gtk"] floating enable
+for_window [class="Spotify" instance="spotify"] floating enable
+for_window [class="openttd" instance="openttd"] floating enable
 
-exec --no-startup-id /usr/lib/gnome-settings-daemon/gnome-settings-daemon
+exec --no-startup-id /usr/bin/unity-settings-daemon
 exec ~/.xinitrc
-exec ~/.screenlayout/dual-4k.sh
+#exec ~/.screenlayout/dual-4k.sh
 
 # screen lock after 10m
 exec --no-startup-id xautolock -time 10 -locker i3lock
