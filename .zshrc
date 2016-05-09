@@ -74,13 +74,18 @@ PERSONALBIN=~/bin:~/.local/bin
 
 
 # Linux (mostly linuxbrew)
-os=$(uname -o)
+os=$(uname)
 if [[ ( "$os" == "Linux" ) || ( "$os" == "GNU/Linux" ) ]]; then
     export PATH="$HOME/code/ext/linuxbrew/bin:$PATH"
     export MANPATH="$HOME/code/ext/linuxbrew/share/man:$MANPATH"
     export INFOPATH="$HOME/code/ext/linuxbrew/share/info:$INFOPATH"
     # fix pkg-config
     export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig:/usr/lib64/pkgconfig:/usr/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib64/pkgconfig:/usr/share/pkgconfig:$PKG_CONFIG_PATH
+
+    # detect i3 and export gnome keyring vars
+    if grep -q 'Name: i3' <<<$(wmctrl -m); then
+        export $(gnome-keyring-daemon -s)
+    fi
 fi
 
 # the big one
@@ -102,17 +107,6 @@ eval "$(direnv hook zsh)"
 # a bit weird
 export COLORTERM=xterm-256color
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
-
-# detect i3 and export gnome keyring vars
-if grep -q 'Name: i3' <<<$(wmctrl -m); then
-	export $(gnome-keyring-daemon -s)
-fi
-
-# Chef Kitchen
-export KITCHEN_LOCAL_YAML="$HOME/.kitchen/config.yml"
-
-# coolcoolcool
-type nvim >/dev/null 2>&1 && alias vi=nvim
 
 # alias for todo app
 type todo.sh >/dev/null 2>&1 && alias t=todo.sh
