@@ -86,21 +86,23 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
-set $ws1 term
-set $ws2 www
-set $ws3 code
+set $ws1 slack
+set $ws2 code
+set $ws3 www
+set $ws4 hangout
 set $ws5 vid
 
 workspace $ws1 output DP-0
 workspace $ws2 output DP-0
 workspace $ws3 output DP-2
+workspace $ws4 output DP-0
 workspace $ws5 output DP-2
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -112,7 +114,7 @@ bindsym $mod+0 workspace 10
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -146,7 +148,8 @@ bindsym $mod+space exec ~/.local/bin/rofi -show run -lines 8 -eh 2 -padding 10 -
 bindsym $mod+Ctrl+l exec i3lock
 
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-exit.py"
 
 # screenshots
 bindsym --release mod4+control+shift+4 exec ~/bin/spree-shot.sh
@@ -155,10 +158,10 @@ bindsym --release mod4+control+shift+4 exec ~/bin/spree-shot.sh
 #bindsym XF86AudioRaiseVolume exec cmus-remote --volume +10%
 #bindsym XF86AudioLowerVolume exec cmus-remote --volume -10%
 #bindsym XF86AudioMute exec cmus-remote --volume 0%
-bindsym XF86AudioPlay exec ~/bin/player-control.sh playpause
-bindsym XF86AudioStop exec ~/bin/player-control.sh stop
-bindsym XF86AudioPrev exec ~/bin/player-control.sh previous
-bindsym XF86AudioNext exec ~/bin/player-control.sh next
+#bindsym XF86AudioPlay exec ~/bin/player-control.sh playpause
+#bindsym XF86AudioStop exec ~/bin/player-control.sh stop
+#bindsym XF86AudioPrev exec ~/bin/player-control.sh previous
+#bindsym XF86AudioNext exec ~/bin/player-control.sh next
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

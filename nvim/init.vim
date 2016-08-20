@@ -173,7 +173,7 @@ augroup vimrcEX
     autocmd FileType javascript setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4
     autocmd FileType clojure setlocal expandtab shiftwidth=2 tabstop=2
-    autocmd FileType perl setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType perl setlocal noexpandtab shiftwidth=2 tabstop=2
     autocmd FileType php setlocal expandtab shiftwidth=4 tabstop=4 omnifunc=phpcomplete#CompletePHP
     autocmd FileType xml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType ruby setlocal expandtab shiftwidth=2 tabstop=2
@@ -261,9 +261,6 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
     \ }
-
-" NERDTree
-map <C-n> :NERDTreeToggle<cr>
 
 " FZF
 nnoremap <silent> <Leader><Leader> :Files<cr>

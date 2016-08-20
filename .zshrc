@@ -110,3 +110,5 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # alias for todo app
 type todo.sh >/dev/null 2>&1 && alias t=todo.sh
+
+[[ -s "/home/r2/.gvm/scripts/gvm" ]] && source "/home/r2/.gvm/scripts/gvm"
