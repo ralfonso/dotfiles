@@ -92,7 +92,7 @@ set $ws3 www
 set $ws4 hangout
 set $ws5 vid
 
-workspace $ws1 output DP-0
+workspace $ws1 output DP-4
 workspace $ws2 output DP-0
 workspace $ws3 output DP-2
 workspace $ws4 output DP-0
@@ -142,7 +142,7 @@ bindsym $mod+m exec x-terminal-emulator -x cmus -t "cmus-scratchpad"
 #bindsym $mod+d exec dmenu_run
 
 # rofi instead
-bindsym $mod+space exec ~/.local/bin/rofi -show run -lines 8 -eh 2 -padding 10 -modi drun,run,window
+bindsym $mod+space exec ~/.local/bin/rofi -show drun -lines 8 -eh 2 -padding 10
 
 # manual screen lock
 bindsym $mod+Ctrl+l exec i3lock
@@ -227,7 +227,7 @@ assign [class="chromium"] www
 assign [class="google-chrome"] www
 assign [class="virt-manager"] virt
 assign [class="virt-viewer"] virt
-assign [class="Slack" instance="slack"] term
+assign [class="Slack" instance="slack"] slack
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="zoom"] floating enable

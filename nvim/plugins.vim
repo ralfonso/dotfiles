@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
-Plug 'http://github.com/scrooloose/nerdcommenter.git'
+Plug 'https://github.com/tpope/vim-commentary.git'
 Plug 'https://github.com/tpope/vim-fugitive.git'
 Plug 'https://github.com/scrooloose/syntastic.git'
 Plug 'https://github.com/scrooloose/nerdtree.git'
