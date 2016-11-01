@@ -224,7 +224,7 @@ bar {
 
 # app settings
 assign [class="chromium"] www
-assign [class="google-chrome"] www
+#assign [class="google-chrome"] www
 assign [class="virt-manager"] virt
 assign [class="virt-viewer"] virt
 assign [class="Slack" instance="slack"] slack
@@ -236,7 +236,7 @@ for_window [class="vlc"] floating enable
 for_window [class="Viewnior" instance="viewnior"] floating enable
 for_window [class="Gucharmap" instance="gucharmap"] floating enable
 for_window [title="cmus-scratchpad"] move scratchpad
-for_window [class="google-chrome" window_role="pop-up"] floating enable
+for_window [class="Google-chrome" window_role="pop-up"] floating enable
 for_window [class="Transmission-gtk" instance="transmission-gtk"] floating enable
 for_window [class="Spotify" instance="spotify"] floating enable
 for_window [class="openttd" instance="openttd"] floating enable

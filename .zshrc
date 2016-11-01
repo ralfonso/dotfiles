@@ -61,13 +61,13 @@ export PAGER=less
 export LESS="-iMSrx4 -FX"
 
 # golang
-export GOPATH=~/code/go/third_party:~/code/personal/go
+export GOPATH=~/go
 
 # tidy
 export HTML_TIDY=~/.tidyrc
 
 # path for Go binaries
-GOBINPATH=~/code/personal/go/bin:~/code/go/third_party/bin
+GOBINPATH=/usr/local/go/bin:~/go/bin
 
 # path for personal bins
 PERSONALBIN=~/bin:~/.local/bin
@@ -94,15 +94,15 @@ export PATH=$PERSONALBIN:$GOBINPATH:$PATH
 tmux list-sessions 2> /dev/null
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-type foo >/dev/null 2>&1 && eval "$(chef shell-init zsh)"
 export GO15VENDOREXPERIMENT=1
 
 # Base16 Shell
-BASE16_SHELL="$HOME/code/ext/base16-shell/base16-monokai.dark.sh"
 [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+BASE16_SHELL=$HOME/.config/base16-shell/
+    [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
 # direnv
-eval "$(direnv hook zsh)"
+type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"
 
 # a bit weird
 export COLORTERM=xterm-256color
@@ -111,4 +111,15 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 # alias for todo app
 type todo.sh >/dev/null 2>&1 && alias t=todo.sh
 
-[[ -s "/home/r2/.gvm/scripts/gvm" ]] && source "/home/r2/.gvm/scripts/gvm"
+# set the GPG tty
+type tty >/dev/null 2>&1 && export GPG_TTY=$(tty)
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f /home/r2/google-cloud-sdk/path.zsh.inc ]; then
+  source '/home/r2/google-cloud-sdk/path.zsh.inc'
+fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f /home/r2/google-cloud-sdk/completion.zsh.inc ]; then
+  source '/home/r2/google-cloud-sdk/completion.zsh.inc'
+fi

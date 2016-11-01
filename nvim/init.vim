@@ -32,16 +32,35 @@ let base16colorspace=256
 colorscheme base16-monokai
 let g:solarized_contrast = "high"
 
-" for airline
-let g:airline#extensions#syntastic#enabled = 1
-let g:airline_theme='r2ish'
-let g:airline_powerline_fonts=1
-" Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-" let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline#extensions#tabline#fnamemod = ':.'
-let g:airline_solarized_bg='dark'
+" lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+	  \   'fugitive': 'LightlineFugitive',
+      \ },
+      \ 'component': {
+      \   'readonly': '%{&filetype=="help"?"":&readonly?"⭤":""}',
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}',
+      \   'fugitive': '%{exists("*fugitive#head")?fugitive#head():""}'
+      \ },
+      \ 'component_visible_condition': {
+      \   'readonly': '(&filetype!="help"&& &readonly)',
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))',
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+function! LightlineFugitive()
+  if exists("*fugitive#head")
+    let branch = fugitive#head()
+    return branch !=# '' ? '⭠ '.branch : ''
+  endif
+  return ''
+endfunction
 
 " syntastic
 let g:syntastic_java_checkers=[]
@@ -55,6 +74,7 @@ let g:syntastic_go_checkers=[]
 let g:syntastic_enable_go_checker = 0
 
 set number
+set relativenumber
 set cursorline
 set laststatus=2
 set showtabline=2
@@ -78,7 +98,8 @@ set shortmess+=aIt
 set showcmd
 set showfulltag
 set noshowmatch
-set showmode
+" lightline does this
+set noshowmode
 set title
 set titlestring=VIM:\ %<%F
 set ttyfast

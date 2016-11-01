@@ -1,4 +1,3 @@
 alias prettyjson="python -mjson.tool"
-alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 alias vi='nvim'
 alias tma='tmux new -As'
