@@ -1,5 +1,5 @@
-.vim/plugged
-.vim/.netrwhist
-.vim/plugged
-.tmux/plugins
-nvim/plugged
+vim/.vim/plugged
+vim/.vim/.netrwhist
+vim/.vim/plugged
+vim/.tmux/plugins
+nvim/.config/nvim/plugged

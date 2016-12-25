@@ -90,13 +90,15 @@ set $ws1 slack
 set $ws2 code
 set $ws3 www
 set $ws4 hangout
-set $ws5 vid
+set $ws5 DO
+set $ws6 vid
 
 workspace $ws1 output DP-4
 workspace $ws2 output DP-0
 workspace $ws3 output DP-2
 workspace $ws4 output DP-0
 workspace $ws5 output DP-2
+workspace $ws5 output DP-0
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -104,7 +106,7 @@ bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
 bindsym $mod+4 workspace $ws4
 bindsym $mod+5 workspace $ws5
-bindsym $mod+6 workspace 6
+bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
@@ -116,7 +118,7 @@ bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
@@ -154,14 +156,13 @@ bindsym $mod+Shift+e exec "i3-exit.py"
 # screenshots
 bindsym --release mod4+control+shift+4 exec ~/bin/spree-shot.sh
 
-# cmus bindings
 #bindsym XF86AudioRaiseVolume exec cmus-remote --volume +10%
 #bindsym XF86AudioLowerVolume exec cmus-remote --volume -10%
-#bindsym XF86AudioMute exec cmus-remote --volume 0%
-#bindsym XF86AudioPlay exec ~/bin/player-control.sh playpause
-#bindsym XF86AudioStop exec ~/bin/player-control.sh stop
-#bindsym XF86AudioPrev exec ~/bin/player-control.sh previous
-#bindsym XF86AudioNext exec ~/bin/player-control.sh next
+bindsym XF86AudioMute exec --no-startup-id cmus-remote --volume 0%
+bindsym XF86AudioPlay exec --no-startup-id ~/bin/player-control.sh playpause
+bindsym XF86AudioStop exec --no-startup-id ~/bin/player-control.sh stop
+bindsym XF86AudioPrev exec --no-startup-id ~/bin/player-control.sh previous
+bindsym XF86AudioNext exec --no-startup-id ~/bin/player-control.sh next
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
