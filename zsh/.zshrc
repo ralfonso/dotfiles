@@ -1,5 +1,5 @@
 # Path to your oh-my-zsh configuration.
-ZSH=$HOME/dotfiles/.oh-my-zsh
+ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 
 # ugh, colors don't work 100% in Terminator
@@ -47,11 +47,10 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git osx)
-
 source $ZSH/oh-my-zsh.sh
 
 # remove the oh-my-zsh alias for gb
-unalias gb
+type gb > /dev/null && unalias gb
 
 # disable autocorrect
 unsetopt correct
@@ -83,7 +82,7 @@ if [[ ( "$os" == "Linux" ) || ( "$os" == "GNU/Linux" ) ]]; then
     export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig:/usr/lib64/pkgconfig:/usr/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib64/pkgconfig:/usr/share/pkgconfig:$PKG_CONFIG_PATH
 
     # detect i3 and export gnome keyring vars
-    if grep -q 'Name: i3' <<<$(wmctrl -m); then
+    if type wmctrl > /dev/null && grep -q 'Name: i3' <<<$(wmctrl -m); then
         export $(gnome-keyring-daemon -s)
     fi
 fi
@@ -92,7 +91,11 @@ fi
 export PATH=$PERSONALBIN:$GOBINPATH:$PATH
 
 tmux list-sessions 2> /dev/null
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [[ -f ~/.fzf.zsh ]]
+then
+    source ~/.fzf.zsh
+    export FZF_DEFAULT_COMMAND='find .'
+fi
 
 export GO15VENDOREXPERIMENT=1
 
