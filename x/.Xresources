@@ -1,0 +1,74 @@
+! font settings --------------------------------------------------------------
+
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+! xscreensaver ---------------------------------------------------------------
+
+!font settings
+xscreensaver.Dialog.headingFont:        -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #101010
+xscreensaver.Dialog.background:         #D8D8D8
+xscreensaver.Dialog.topShadowColor:     #D8D8D8
+xscreensaver.Dialog.bottomShadowColor:  #D8D8D8
+xscreensaver.Dialog.Button.foreground:  #101010
+xscreensaver.Dialog.Button.background:  #E5E5E5
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #101010
+xscreensaver.Dialog.text.background:    #E5E5E5
+xscreensaver.Dialog.internalBorderWidth:24
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    2
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #101010
+xscreensaver.passwd.thermometer.background:  #2E2E2E
+xscreensaver.passwd.thermometer.width:       8
+
+/*********************************************************************
+ *                               rofi                                *
+ *********************************************************************/
+
+rofi.font:            Liberation Sans Narrow Bold 20
+rofi.terminal:        i3-sensible-terminal
+!rofi.lines:           10
+rofi.columns:         1
+!rofi.eh:              2
+!rofi.padding:         0
+rofi.location:        0
+!rofi.width:           100
+rofi.line-margin:     6
+rofi.fullscreen:      true
+rofi.opacity:         0
+!rofi.bw:              0
+rofi.sidebar-mode:    false
+rofi.separator-style: solid
+rofi.hide-scrollbar:  true
+rofi.fuzzy:           true
+rofi.color-enabled:   true
+rofi.modi:            window, run, drun
+rofi.combi-modi:      window,drun
+rofi.monitor:         0
+
+#define bg_external argb:77000000
+#define bg_internal argb:00000000
+#define bg_active   #81569c
+#define text_normal #686868
+#define text_active #d9d9d9
+#define sep         #e8e8e8
+
+/* Class           BG           FG           Alt BG       Active BG  Active FG */
+rofi.color-normal: bg_internal, text_normal, bg_internal, bg_active, text_active
+rofi.color-urgent: bg_internal, text_normal, bg_internal, bg_active, text_active
+rofi.color-active: bg_internal, text_normal, bg_internal, bg_active, text_active
+rofi.color-window: bg_external, bg_external, sep
