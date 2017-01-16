@@ -6,6 +6,7 @@ Xft.hinting: true
 Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
+Xft.dpi: 144
 
 ! xscreensaver ---------------------------------------------------------------
 
@@ -39,7 +40,8 @@ xscreensaver.passwd.thermometer.width:       8
  *                               rofi                                *
  *********************************************************************/
 
-rofi.font:            Liberation Sans Narrow Bold 20
+!rofi.font:            Liberation Sans Narrow Bold 20
+rofi.font:            SFNS Display 20
 rofi.terminal:        i3-sensible-terminal
 !rofi.lines:           10
 rofi.columns:         1
@@ -60,7 +62,7 @@ rofi.modi:            window, run, drun
 rofi.combi-modi:      window,drun
 rofi.monitor:         0
 
-#define bg_external argb:77000000
+#define bg_external argb:cc000000
 #define bg_internal argb:00000000
 #define bg_active   #81569c
 #define text_normal #686868

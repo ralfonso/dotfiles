@@ -147,7 +147,7 @@ bindsym $mod+m exec x-terminal-emulator -x cmus -t "cmus-scratchpad"
 bindsym $mod+space exec ~/.local/bin/rofi -show combi -lines 8 -eh 1 -bw $(($(xwininfo -root |awk '/Height/ { print $2}')/3))
 
 # manual screen lock
-bindsym $mod+Ctrl+l exec i3lock
+bindsym $mod+Ctrl+l exec ~/bin/lock.sh
 
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -243,9 +243,7 @@ for_window [class="openttd" instance="openttd"] floating enable
 for_window [class="Totem" instance="totem"] floating enable
 
 exec_always --no-startup-id ~/.i3/bars.sh
-exec --no-startup-id /usr/bin/unity-settings-daemon
-exec ~/.xinitrc
 #exec ~/.screenlayout/dual-4k.sh
 
 # screen lock after 10m
-exec --no-startup-id xautolock -time 10 -locker i3lock
+exec --no-startup-id xautolock -time 10 -locker ~/bin/lock.sh
