@@ -1,5 +1,5 @@
 [global]
-    font = pango:SFNS Display 18
+    font = pango:SFNS Display 15
     allow_markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes
