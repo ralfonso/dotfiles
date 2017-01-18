@@ -51,7 +51,7 @@ scroll-down = i3-msg workspace prev_on_output
 
 [bar/main]
 inherit = bar/style
-monitor = ${env:MONITOR:DP-0}
+monitor = ${env:MONITOR}
 modules-left = i3
 modules-center =
 modules-right = memory cpu eth temperature date
@@ -78,14 +78,14 @@ modules-right = date
 
 [bar/left]
 inherit = bar/secondary
-monitor = ${env:MONITOR:DP-4}
+monitor = ${env:MONITOR}
 ; my left monitor is not 4k
 font-0 = Font Awesome:pixelsize=20
 font-1 = DejaVu Sans:size=13:dpi=100
 
 [bar/right]
 inherit = bar/secondary
-monitor = ${env:MONITOR:DP-2}
+monitor = ${env:MONITOR}
 
 [module/xwindow]
 type = internal/xwindow
@@ -246,9 +246,9 @@ thermal-zone = 0
 warn-temperature = 60
 
 format = <ramp> <label>
-format-underline = #f50a4d
+format-overline = #f50a4d
 format-warn = <ramp> <label-warn>
-format-warn-underline = ${self.format-underline}
+format-warn-overline = ${self.format-overline}
 
 label = %temperature%
 label-warn = %temperature%
