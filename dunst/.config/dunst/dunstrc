@@ -1,5 +1,5 @@
 [global]
-    font = pango:SFNS Display 15
+    font = pango:SFNS Display 16
     allow_markup = yes
     format = "<b>%s</b>\n%b"
     sort = yes
@@ -9,8 +9,8 @@
     show_age_threshold = 60
     word_wrap = yes
     ignore_newline = no
-    geometry = "300x10-20-20"
-    transparency = 25
+    geometry = "420x11-20-20"
+    transparency = 22
     idle_threshold = 120
     monitor = 0
     follow = none
@@ -19,7 +19,7 @@
     line_height = 0
     separator_height = 2
     padding = 8
-    horizontal_padding = 8
+    horizontal_padding = 20
     separator_color = "#585858"
     startup_notification = false
     # https://github.com/knopwob/dunst/issues/26#issuecomment-36159395
@@ -37,16 +37,16 @@
 #    context = ctrl+shift+period
 
 [urgency_low]
-    background = "#6092BE"
-    foreground = "#FFFFFF"
-    timeout = 10
+    background = "#181818"
+    foreground = "#ADC2D9"
+    timeout = 5
 
 [urgency_normal]
-    background = "#6092BE"
-    foreground = "#FFFFFF"
+    background = "#181818"
+    foreground = "#ADC2D9"
     timeout = 20
 
 [urgency_critical]
-    background = "#801515"
-    foreground = "#D46A6A"
+    background = "#181818"
+    foreground = "#C3664A"
     timeout = 0
