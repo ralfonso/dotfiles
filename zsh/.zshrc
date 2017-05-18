@@ -94,7 +94,7 @@ tmux list-sessions 2> /dev/null
 if [[ -f ~/.fzf.zsh ]]
 then
     source ~/.fzf.zsh
-    export FZF_DEFAULT_COMMAND='find .'
+    export FZF_DEFAULT_COMMAND='find . -not \( -wholename "./.git" -prune \)'
 fi
 
 export GO15VENDOREXPERIMENT=1

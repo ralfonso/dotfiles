@@ -28,7 +28,7 @@ xset dpms 0 0 600
 xset -dpms
 
 # Compositor
-compton -f -b -D 2
+# compton -f -b -D 2
 
 ## Start nm-applet for systray
 nm-applet &

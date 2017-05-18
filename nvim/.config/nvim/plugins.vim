@@ -19,6 +19,7 @@ Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/dcharbon/vim-flatbuffers'
+Plug 'arcticicestudio/nord-vim'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
