@@ -121,10 +121,10 @@ set shiftwidth=4
 set tabstop=4
 
 " folding
-set foldmethod=indent
-set foldnestmax=10      "deepest fold is 10 levels
-set nofoldenable        "dont fold by default
-set foldlevel=1         "this is just what i use
+set nofoldenable
+" set foldmethod=indent
+" set foldnestmax=10      "deepest fold is 10 levels
+" set foldlevel=1         "this is just what i use
 
 " search options
 ""set isk=@,48-57,_,192-255,-,.,@-@
@@ -241,8 +241,8 @@ nnoremap td  :tabclose<CR>
 " enable syntax hilighting "
 syntax on
 
-map <Leader>v :e ~/.config/nvim/init.vim<CR>
-map <silent> <Leader>V :source ~/.config/nvim/init.vim<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <Leader>v :e ~/.vimrc<CR>
+map <silent> <Leader>V :source ~/.vimr<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " vbell on osx, which doesn't work anyway
 set vb
@@ -287,6 +287,7 @@ let g:tagbar_type_go = {
 " FZF
 nnoremap <silent> <Leader><Leader> :Files<cr>
 nnoremap <silent> <Leader><Space> :Buffers<cr>
+nnoremap <silent> <Leader>w :Windows<cr>
 
 " gitgutter
 set updatetime=250
