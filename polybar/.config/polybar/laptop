@@ -35,7 +35,7 @@ scroll-up = i3-msg workspace next_on_output
 scroll-down = i3-msg workspace prev_on_output
 
 [i3_settings]
-focused_background = #37474F
+focused_background = #682860
 padding = 2
 
 ;=====================================================

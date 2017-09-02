@@ -1,18 +1,11 @@
 #!/bin/bash
 
+####################################
+# X Settings
+####################################
+
 #xrandr --dpi 144
 xrdb -merge ~/.Xresources
-
-# input
-ibus-daemon &
-
-nitrogen --restore
-
-# notifications daemon
-dunst &
-
-# Pulseaudio tray icon/chooser
-pasystray &
 
 # Make caps another ctrl
 setxkbmap -layout us -option ctrl:nocaps
@@ -41,20 +34,31 @@ xset dpms 0 0 600
 # Then disable it since we let i3lock turn this on
 xset -dpms
 
+####################################
+# Helpers
+####################################
+
+# polkit auth agent
+/usr/lib/polkit-gnome-authentication-agent-1 &
+
+# input selector agent
+ibus-daemon &
+
 # Compositor
 compton -f -b -D 2
 
-## Start nm-applet for systray
-nm-applet &
+# restore wallpaper
+nitrogen --restore
 
 ## Start Thunar Daemon
 thunar --daemon &
 
-## Start xscreensaver
-# xscreensaver -no-splash &
+####################################
+# Tray Applications
+####################################
 
-# turn off the leds on a razer mouse
-type razercfg >/dev/null 2>&1 && razercfg -l all:off
+## Start nm-applet for systray
+nm-applet &
 
 ## Start Clipboard manager
 (sleep 3s && clipit) &
@@ -64,4 +68,8 @@ emojione-picker &
 # redshift color temperature
 redshift-gtk &
 
-slack &
+# notifications daemon
+dunst &
+
+# Pulseaudio tray icon/chooser
+pasystray &

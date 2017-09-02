@@ -74,11 +74,6 @@ if [[ ( "$os" == "Linux" ) || ( "$os" == "GNU/Linux" ) ]]; then
     export INFOPATH="$HOME/code/ext/linuxbrew/share/info:$INFOPATH"
     # fix pkg-config
     export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig:/usr/local/lib64/pkgconfig:/usr/lib64/pkgconfig:/usr/lib/pkgconfig:/usr/lib/x86_64-linux-gnu/pkgconfig:/usr/lib64/pkgconfig:/usr/share/pkgconfig:$PKG_CONFIG_PATH
-
-    # detect i3 and export gnome keyring vars
-    if type wmctrl > /dev/null && grep -q 'Name: i3' <<<$(wmctrl -m); then
-        export $(gnome-keyring-daemon -s)
-    fi
 fi
 
 # the big one
