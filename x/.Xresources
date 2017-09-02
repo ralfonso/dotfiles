@@ -58,8 +58,6 @@ rofi.separator-style: solid
 rofi.hide-scrollbar:  true
 rofi.fuzzy:           true
 rofi.color-enabled:   true
-rofi.modi:            window, run, drun
-rofi.combi-modi:      window,drun
 rofi.monitor:         0
 
 #define bg_external argb:cc000000
@@ -73,4 +71,4 @@ rofi.monitor:         0
 rofi.color-normal: bg_internal, text_normal, bg_internal, bg_active, text_active
 rofi.color-urgent: bg_internal, text_normal, bg_internal, bg_active, text_active
 rofi.color-active: bg_internal, text_normal, bg_internal, bg_active, text_active
-rofi.color-window: bg_external, bg_external, sep
+rofi.color-window: bg_external, bg_external, sep,         bg_active, text_active

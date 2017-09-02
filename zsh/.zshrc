@@ -2,12 +2,6 @@
 ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 
-# ugh, colors don't work 100% in Terminator
-# Base16 Shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-monokai.dark.sh"
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
-
-# we load this early for the theme color, but this might need to be broken into before/after files
 if [[ -e ~/.zshrc-priv ]];
 then
     source ~/.zshrc-priv
@@ -100,9 +94,9 @@ fi
 export GO15VENDOREXPERIMENT=1
 
 # Base16 Shell
-[[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
 BASE16_SHELL=$HOME/.config/base16-shell/
-    [ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+[ -n "$PS1" ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+base16_material-darker
 
 # direnv
 type direnv > /dev/null 2>&1 && eval "$(direnv hook zsh)"

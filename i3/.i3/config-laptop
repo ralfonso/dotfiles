@@ -9,13 +9,15 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+exec --no-startup-id ~/.i3/autostart-laptop
+
 set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans 15
+font "pango:M+ 1m 12"
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -26,15 +28,11 @@ font pango:DejaVu Sans 15
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+gaps inner 7
+gaps outer 7
+
 # kill focused window
 bindsym $mod+Shift+q kill
-
-#
-#
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -86,19 +84,12 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
-set $ws1 slack
-set $ws2 code
-set $ws3 www
-set $ws4 hangout
-set $ws5 DO
-set $ws6 vid
-
-workspace $ws1 output DP-4
-workspace $ws2 output DP-0
-workspace $ws3 output DP-2
-workspace $ws4 output DP-0
-workspace $ws5 output DP-2
-workspace $ws6 output DP-0
+set $ws1 1:
+set $ws2 2:
+set $ws3 3:
+set $ws4 4:
+set $ws5 5:
+set $ws6 6:e
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -135,7 +126,7 @@ bindsym $mod+minus scratchpad show
 
 # EXECS!
 # start a terminal
-bindsym $mod+Return exec ~/bin/alacritty
+bindsym $mod+Return exec sakura
 
 # start cmus (in scratchpad)
 bindsym $mod+m exec x-terminal-emulator -x cmus -t "cmus-scratchpad"
@@ -143,8 +134,14 @@ bindsym $mod+m exec x-terminal-emulator -x cmus -t "cmus-scratchpad"
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
 
+
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+#bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
+
 # rofi instead
-#bindsym $mod+space exec ~/.local/bin/rofi -show combi -lines 8 -eh 1 -bw $(($(xwininfo -root |awk '/Height/ { print $2}')/3))
+bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi -lines 8 -eh 1 -bw $(($(xwininfo -root |awk '/Height/ { print $2}')/3))"
 
 # manual screen lock
 bindsym $mod+Ctrl+l exec ~/bin/lock.sh
@@ -158,11 +155,17 @@ bindsym --release mod4+control+shift+4 exec ~/bin/spree-shot.sh
 
 #bindsym XF86AudioRaiseVolume exec cmus-remote --volume +10%
 #bindsym XF86AudioLowerVolume exec cmus-remote --volume -10%
-bindsym XF86AudioMute exec --no-startup-id cmus-remote --volume 0%
-bindsym XF86AudioPlay exec --no-startup-id ~/bin/player-control.sh playpause
-bindsym XF86AudioStop exec --no-startup-id ~/bin/player-control.sh stop
-bindsym XF86AudioPrev exec --no-startup-id ~/bin/player-control.sh previous
-bindsym XF86AudioNext exec --no-startup-id ~/bin/player-control.sh next
+#bindsym XF86AudioMute exec --no-startup-id cmus-remote --volume 0%
+#bindsym XF86AudioPlay exec --no-startup-id ~/bin/player-control.sh playpause
+#bindsym XF86AudioStop exec --no-startup-id ~/bin/player-control.sh stop
+#bindsym XF86AudioPrev exec --no-startup-id ~/bin/player-control.sh previous
+#bindsym XF86AudioNext exec --no-startup-id ~/bin/player-control.sh next
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym XF86MonBrightnessUp exec --no-startup-id sudo /usr/local/bin/brightlight -p -i 15
+bindsym XF86MonBrightnessDown exec --no-startup-id sudo /usr/local/bin/brightlight -p -d 15
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -227,7 +230,7 @@ assign [class="chromium"] www
 #assign [class="google-chrome"] www
 assign [class="virt-manager"] virt
 assign [class="virt-viewer"] virt
-assign [class="Slack" instance="slack"] slack
+assign [class="Slack" instance="slack"] $ws4
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="zoom"] floating enable
@@ -246,4 +249,4 @@ exec_always --no-startup-id ~/.i3/bars.sh
 #exec ~/.screenlayout/dual-4k.sh
 
 # screen lock after 10m
-exec --no-startup-id xautolock -time 10 -locker ~/bin/lock.sh
+exec --no-startup-id ~/.local/bin/xss-lock i3lock

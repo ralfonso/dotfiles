@@ -1,0 +1,439 @@
+;===================================================
+;                                                  ;
+;   To learn more about how to configure Polybar   ;
+;   go to https://github.com/jaagr/polybar         ;
+;                                                  ;
+;                                                  ;
+;===================================================
+
+;=====================================================
+; Declare some colors here
+; #abc -> #aabbcc
+;=====================================================
+[colors]
+
+; Background and foreground colors (B/W)
+very-dark-gray      = #77444444
+very-dark-gray-alt  = #444
+white								= #FFF
+white-alt						= #EEE
+
+date-time			  = #223843
+bat-discharging	= #56FF67
+cpu							= #FF940A
+net							= #44355B
+bat-charging		= #FC5C1F
+temp						= #24BDFF
+ram							= #FA042B
+
+
+primary   = #1565c0
+secondary = #90a4ae
+alert     = #f4511e
+
+scroll-up = i3-msg workspace next_on_output
+scroll-down = i3-msg workspace prev_on_output
+
+[i3_settings]
+focused_background = #37474F
+padding = 2
+
+;=====================================================
+; My main bar
+;=====================================================
+[bar/main]
+width  = 100%
+height = 40
+radius = 0.0
+fixed-center = false
+bottom = false
+
+background = ${colors.very-dark-gray}
+foreground = ${colors.white-alt}
+
+line-size  = 0
+line-color = #f00
+
+border-size  = 0
+border-color = #00000000
+
+padding-left  = 0
+padding-right = 0
+
+module-margin-left  = 0
+module-margin-right = 0
+
+font-0 = Material Design Icons:pixelsize=18;2
+font-1 = Droid Sans Mono:size=16
+font-2 = GNU Unifont:pixelsize=13
+font-3 = Deja Vu Sans:pixelsize=13;2
+font-4 = FontAwesome:pixelsize=18;2
+
+separator =  
+
+modules-left   = i3
+modules-right  = volume cpu memory backlight wlan eth battery temperature date
+
+#tray-background = #444444
+tray-position = right
+tray-padding  = 0
+tray-maxsize  = 25
+tray-scale    = 1
+
+;=====================================================
+; Module xwindow:
+;=====================================================
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+label-maxlen = 25
+;=====================================================
+
+;=====================================================
+; Module xkeyboard:
+;=====================================================
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = ${colors.white-alt}
+format-prefix-underline = ${colors.secondary}
+
+label-layout = %layout%
+label-layout-underline = ${colors.secondary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+;=====================================================
+
+;=====================================================
+; Module filesystem:
+;=====================================================
+[module/filesystem]
+type = internal/fs
+interval = 30
+
+mount-0 = /home
+
+label-mounted = "%{F#0a81f5}%mountpoint%%{F-}: %percentage_used%% "
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.white-alt}
+;=====================================================
+
+;=====================================================
+; Module i3
+;=====================================================
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+strip-wsnumbers = true
+
+;Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-focused-font = 5
+label-unfocused-font = 5
+label-visible-font = 5
+label-urgent-font = 5
+
+label-mode-padding    = 0
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${i3_settings.focused_background}
+label-focused-underline  = ${i3_settings.focused_background}
+label-focused-padding    = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-padding  = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline  = ${self.label-focused-underline}
+label-visible-padding    = 1
+
+; urgent = Workspace with urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding    = 1
+;=====================================================
+
+;=====================================================
+; Module xbacklight:
+; Shows information about the defined output's
+; backlight level
+;=====================================================
+[module/backlight]
+type = internal/backlight
+card = intel_backlight
+
+format = <ramp> <bar>
+
+; format label (if <label> is present)
+label = %percentage%%
+
+; format bar (if <bar> is present)
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #ff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = ${colors.white-alt}
+
+; format ramp (if <ramp> is present)
+ramp-0 = " 🌕"
+ramp-1 = " 🌔"
+ramp-2 = " 🌓"
+ramp-3 = " 🌒"
+ramp-4 = " 🌑"
+;=====================================================
+
+;=====================================================
+; Module CPU
+;=====================================================
+[module/cpu]
+type = internal/cpu
+interval = 2
+
+;format-prefix-background = ${colors.cpu}
+format-prefix = "  "
+
+;label-background = ${colors.cpu}
+label = "%percentage%% "
+;=====================================================
+
+;=====================================================
+; Module memory
+;=====================================================
+[module/memory]
+type = internal/memory
+interval = 2
+
+;format-prefix-background = ${colors.ram}
+format-prefix	 = "  "
+
+;label-background = ${colors.ram}
+label						 = "%percentage_used%% "
+;=====================================================
+
+;=====================================================
+; Module wlan
+;=====================================================
+[module/wlan]
+type      = internal/network
+interface = wlp4s0
+interval  = 3.0
+
+; When connected
+;format-connected-background = ${colors.net}
+format-connected            = <ramp-signal> <label-connected>
+label-connected             = "%essid% "
+
+; Don't show it if disconnected
+format-disconnected = " "
+
+ramp-signal-0 = " "
+;=====================================================
+
+;=====================================================
+; Module ethernet
+;=====================================================
+[module/eth]
+type = internal/network
+interface = enp0s31f6
+interval = 3.0
+
+format-connected-prefix-background = ${colors.net}
+format-connected-prefix						 = "  "
+
+label-connected-background = ${colors.net}
+label-connected			   = %local_ip%
+
+format-disconnected =
+;=====================================================
+
+;=====================================================
+; Module date and time
+;=====================================================
+[module/date]
+type = internal/date
+interval = 5
+
+; Format for date
+date = " %b %-d"
+date-alt = " %Y-%m-%d"
+
+; Format for time
+time = %H:%M
+time-alt = %H:%M:%S
+
+;format-prefix-background = ${colors.date-time}
+format-prefix = " "
+
+
+;label-background = ${colors.date-time}
+label			 = "%date% %time% "
+;=====================================================
+
+;=====================================================
+; Module volume
+;=====================================================
+[module/volume]
+type = internal/volume
+
+format-volume = <ramp-volume> <bar-volume>
+label-volume  =
+label-volume-foreground = ${colors.white}
+
+format-muted-prefix = " "
+format-muted				= <label-muted>
+label-muted					= Muted
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #55aa55
+bar-volume-foreground-1 = #55aa55
+bar-volume-foreground-2 = #55aa55
+bar-volume-foreground-3 = #55aa55
+bar-volume-foreground-4 = #55aa55
+bar-volume-foreground-5 = #f5a70a
+bar-volume-foreground-6 = #ff5555
+bar-volume-gradient = false
+bar-volume-indicator = |
+bar-volume-indicator-font = 2
+bar-volume-fill = ─
+bar-volume-fill-font = 2
+bar-volume-empty = ─
+bar-volume-empty-font = 2
+bar-volume-empty-foreground = ${colors.white-alt}
+
+;=====================================================
+; Module battery:
+; Shows information about the battery
+;=====================================================
+[module/battery]
+type = internal/battery
+
+; Use the following command to list batteries and adapters
+; $ ls -l /sys/class/power_supply
+battery = BAT0
+adapter = ADP0
+
+; Useful in case the battery never reports 100% charge
+full-at = 98
+
+; Time format (see "man date")
+time-format = %H:%M
+
+; Format when battery is charging
+;format-charging-background = ${colors.bat-charging}
+format-charging						 = <animation-charging> <label-charging>
+label-charging						 = "%percentage%% %time% "
+
+; Format when battery is discharging
+;format-discharging-background = ${colors.bat-discharging}
+format-discharging						= <ramp-capacity> <label-discharging>
+label-discharging							= "%percentage%% %time% "
+
+; Format when battery is fully charged
+;format-full-background = ${colors.bat-discharging}
+format-full						 = <ramp-capacity> <label-full>
+label-full						 = Full
+
+ramp-capacity-0  = " "
+ramp-capacity-1  = " "
+ramp-capacity-2  = " "
+ramp-capacity-3  = " "
+ramp-capacity-4  = " "
+ramp-capacity-5  = " "
+ramp-capacity-6  = " "
+ramp-capacity-7  = " "
+ramp-capacity-8  = " "
+ramp-capacity-9  = " "
+ramp-capacity-10 = " "
+
+animation-charging-0 = " "
+animation-charging-1 = " "
+animation-charging-2 = " "
+animation-charging-3 = " "
+animation-charging-4 = " "
+animation-charging-5 = " "
+animation-charging-6 = " "
+animation-charging-framerate = 750
+
+;=====================================================
+
+;=====================================================
+; Module temperature
+;=====================================================
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 70
+
+;format-background = ${colors.temp}
+format						= <ramp> <label>
+
+format-warn	 = <ramp> <label-warn>
+
+label			 = "%temperature% "
+label-warn = "%temperature%! "
+
+ramp-0 = " "
+ramp-1 = " "
+;=====================================================
+
+;=====================================================
+; Module power menu:
+;=====================================================
+[module/powermenu]
+type = custom/menu
+
+menu-0-0 = ⏻ Apagar
+menu-0-0-exec = poweroff
+menu-0-1 = ⏽ Reiniciar
+menu-0-1-exec = reboot
+menu-0-2 = ⏾ Suspender
+menu-0-2-exec = systemctl suspend
+menu-0-3 = ⏼ Cerrar sesión
+menu-0-3-exec = pkill -u $USER
+
+;=====================================================
+
+format-spacing = 1
+
+label-open = 
+label-open-foreground = ${colors.secondary}
+label-close =  cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.white-alt}
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini

@@ -135,7 +135,7 @@ bindsym $mod+minus scratchpad show
 
 # EXECS!
 # start a terminal
-bindsym $mod+Return exec ~/bin/alacritty
+bindsym $mod+Return exec x-terminal-emulator
 
 # start cmus (in scratchpad)
 bindsym $mod+m exec x-terminal-emulator -x cmus -t "cmus-scratchpad"
