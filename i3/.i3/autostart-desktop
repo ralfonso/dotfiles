@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#########################################3
+# X settings
+#########################################3
+
+# adjust dpi
+xrandr --dpi 144
+
+# Make right alt/win compose
+setxkbmap -option compose:rwin
+
+#########################################3
+# Misc
+#########################################3
+
+# turn off the leds on a razer mouse
+type razercfg >/dev/null 2>&1 && razercfg -l all:off
+
+# screen lock on suspend
+~/.local/bin/xss-lock ~/bin/i3-lock-wrapper.sh &
+
+# load randr
+~/.screenlayout/trihead.sh

@@ -1,17 +1,7 @@
 #!/bin/bash
 
-####################################
-# X Settings
-####################################
-
-#xrandr --dpi 144
-xrdb -merge ~/.Xresources
-
-# Make caps another ctrl
-setxkbmap -layout us -option ctrl:nocaps
-
-# Make right alt/win compose
-setxkbmap -option compose:rwin
+# Make PrtSc Compose (it's in the right super position on my Thinkpad)
+setxkbmap -option compose:prsc
 
 # disable touchpad if it exists
 synaptics_id=$(xinput --list | awk -v search="SynPS/2" \
@@ -24,52 +14,3 @@ if [[ ! -z "${synaptics_id}" ]];
 then
   xinput disable ${synaptics_id}
 fi
-
-# Increase keyboard repeat
-xset r rate 220 43
-
-# Turn off the monitor after ten minutes idle
-xset dpms 0 0 600
-
-# Then disable it since we let i3lock turn this on
-xset -dpms
-
-####################################
-# Helpers
-####################################
-
-# polkit auth agent
-/usr/lib/polkit-gnome-authentication-agent-1 &
-
-# input selector agent
-ibus-daemon &
-
-# Compositor
-compton -f -b -D 2
-
-# restore wallpaper
-nitrogen --restore
-
-## Start Thunar Daemon
-thunar --daemon &
-
-####################################
-# Tray Applications
-####################################
-
-## Start nm-applet for systray
-nm-applet &
-
-## Start Clipboard manager
-(sleep 3s && clipit) &
-
-emojione-picker &
-
-# redshift color temperature
-redshift-gtk &
-
-# notifications daemon
-dunst &
-
-# Pulseaudio tray icon/chooser
-pasystray &

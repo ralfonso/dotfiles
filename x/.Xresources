@@ -41,16 +41,16 @@ xscreensaver.passwd.thermometer.width:       8
  *********************************************************************/
 
 !rofi.font:            Liberation Sans Narrow Bold 20
-rofi.font:            SFNS Display 20
+rofi.font:            M+ 1c 20
 rofi.terminal:        i3-sensible-terminal
 !rofi.lines:           10
 rofi.columns:         1
 !rofi.eh:              2
 !rofi.padding:         0
-rofi.location:        0
+rofi.location:        2
 !rofi.width:           100
 rofi.line-margin:     6
-rofi.fullscreen:      true
+rofi.fullscreen:      false
 rofi.opacity:         0
 !rofi.bw:              0
 rofi.sidebar-mode:    false

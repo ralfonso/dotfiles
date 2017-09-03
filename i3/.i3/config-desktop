@@ -9,13 +9,24 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# run the startup programs
+exec --no-startup-id ~/.i3/autostart-shared
+exec --no-startup-id ~/.i3/autostart-desktop
+
+# create or create the bars
+exec_always --no-startup-id ~/.i3/bars
+
 set $mod Mod1
+
+# gaps config
+gaps inner 15
+gaps outer 15
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans 15
+font "pango:M+ 1m 11"
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -28,13 +39,6 @@ floating_modifier $mod
 
 # kill focused window
 bindsym $mod+Shift+q kill
-
-#
-#
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+j focus left
@@ -86,12 +90,13 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
-set $ws1 slack
-set $ws2 code
-set $ws3 www
-set $ws4 hangout
-set $ws5 DO
-set $ws6 vid
+set $ws1 1:
+set $ws2 1:
+set $ws3 2:
+set $ws4 4:
+set $ws5 3:
+set $ws6 6:e
+set $ws10 10:
 
 workspace $ws1 output DP-4
 workspace $ws2 output DP-0
@@ -99,6 +104,7 @@ workspace $ws3 output DP-2
 workspace $ws4 output DP-0
 workspace $ws5 output DP-2
 workspace $ws6 output DP-0
+workspace $ws10 output DP-0
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -110,7 +116,7 @@ bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace $ws10
 
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
@@ -122,7 +128,7 @@ bindsym $mod+Shift+6 move container to workspace $ws6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $ws10
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -135,16 +141,10 @@ bindsym $mod+minus scratchpad show
 
 # EXECS!
 # start a terminal
-bindsym $mod+Return exec x-terminal-emulator
+bindsym $mod+Return exec sakura --config-file sakura-desktop.conf
 
-# start cmus (in scratchpad)
-bindsym $mod+m exec x-terminal-emulator -x cmus -t "cmus-scratchpad"
-
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-
-# rofi instead
-#bindsym $mod+space exec ~/.local/bin/rofi -show combi -lines 8 -eh 1 -bw $(($(xwininfo -root |awk '/Height/ { print $2}')/3))
+# rofi launcher
+bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi -lines 15 -eh 1 -width 1500 -yoffset 50"
 
 # manual screen lock
 bindsym $mod+Ctrl+l exec ~/bin/lock.sh
@@ -241,9 +241,3 @@ for_window [class="Transmission-gtk" instance="transmission-gtk"] floating enabl
 for_window [class="Spotify" instance="spotify"] floating enable
 for_window [class="openttd" instance="openttd"] floating enable
 for_window [class="Totem" instance="totem"] floating enable
-
-exec_always --no-startup-id ~/.i3/bars.sh
-#exec ~/.screenlayout/dual-4k.sh
-
-# screen lock after 10m
-exec --no-startup-id xautolock -time 10 -locker ~/bin/lock.sh

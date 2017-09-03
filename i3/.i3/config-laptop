@@ -9,7 +9,12 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+# run the startup programs
+exec --no-startup-id ~/.i3/autostart-shared
 exec --no-startup-id ~/.i3/autostart-laptop
+
+# create or create the bars
+exec_always --no-startup-id ~/.i3/bars
 
 set $mod Mod1
 
@@ -28,6 +33,7 @@ font "pango:M+ 1m 11"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# gaps config
 gaps inner 7
 gaps outer 7
 
@@ -127,22 +133,10 @@ bindsym $mod+minus scratchpad show
 
 # EXECS!
 # start a terminal
-bindsym $mod+Return exec sakura
+bindsym $mod+Return exec sakura --config-file sakura-laptop.conf
 
-# start cmus (in scratchpad)
-bindsym $mod+m exec x-terminal-emulator -x cmus -t "cmus-scratchpad"
-
-# start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
-
-
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-#bindsym $mod+space exec --no-startup-id i3-dmenu-desktop
-
-# rofi instead
-bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi -lines 8 -eh 1 -bw $(($(xwininfo -root |awk '/Height/ { print $2}')/3))"
+# rofi launcher
+bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi -lines 15 -eh 1 -width 800 -yoffset 20"
 
 # manual screen lock
 bindsym $mod+Ctrl+l exec ~/bin/i3-lock-wrapper.sh
@@ -245,12 +239,3 @@ for_window [class="Transmission-gtk" instance="transmission-gtk"] floating enabl
 for_window [class="Spotify" instance="spotify"] floating enable
 for_window [class="openttd" instance="openttd"] floating enable
 for_window [class="Totem" instance="totem"] floating enable
-
-exec_always --no-startup-id ~/.i3/bars.sh
-#exec ~/.screenlayout/dual-4k.sh
-
-# screen lock on suspend
-exec --no-startup-id ~/.local/bin/xss-lock ~/bin/i3-lock-wrapper.sh
-
-# screen lock after 10m idle
-exec --no-startup-id xautolock -time 10 -locker ~/bin/i3-lock-wrapper.sh

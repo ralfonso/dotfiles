@@ -18,10 +18,11 @@ alert = #bd2c40
 
 [global/wm]
 margin-bottom = 0
+margin-top = 0
 
-[bar/style]
+[bar/a1-style]
 width = 100%
-height = 40
+height = 50
 offset-x = 0
 offset-y = 0
 bottom = true
@@ -29,7 +30,7 @@ bottom = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-overline-size = 2
+overline-size = 3
 overline-color = #f00
 underline-size = 2
 underline-color = #00f
@@ -43,14 +44,14 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Font Awesome:pixelsize=25
-font-1 = DejaVu Sans:size=11
+font-0 = Font Awesome:pixelsize=25;5
+font-1 = DejaVu Sans:size=11;5
 
 scroll-up = i3-msg workspace next_on_output
 scroll-down = i3-msg workspace prev_on_output
 
 [bar/main]
-inherit = bar/style
+inherit = bar/a1-style
 monitor = ${env:MONITOR}
 modules-left = i3
 modules-center =
@@ -58,7 +59,7 @@ modules-right = memory cpu eth temperature date
 
 tray-position = right
 tray-padding = 0
-tray-maxsize = 20
+tray-maxsize = 25
 tray-scale = 1.0
 ;tray-transparent = true
 ;tray-background = #0063ff
@@ -71,20 +72,20 @@ tray-scale = 1.0
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
 
-[bar/secondary]
-inherit = bar/style
+[bar/a2-secondary]
+inherit = bar/a1-style
 modules-left = i3
 modules-right = date
 
 [bar/left]
-inherit = bar/secondary
+inherit = bar/a2-secondary
 monitor = ${env:MONITOR}
 ; my left monitor is not 4k
-font-0 = Font Awesome:pixelsize=20
+font-0 = Font Awesome:pixelsize=20;2
 font-1 = DejaVu Sans:size=13:dpi=100
 
 [bar/right]
-inherit = bar/secondary
+inherit = bar/a2-secondary
 monitor = ${env:MONITOR}
 
 [module/xwindow]
@@ -123,6 +124,7 @@ type = internal/i3
 format = <label-state> <label-mode>
 index-sort = true
 wrapping-scroll = true
+strip-wsnumbers = true
 
 label-mode-padding = 2
 label-mode-foreground = #000
