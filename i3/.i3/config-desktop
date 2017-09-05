@@ -10,8 +10,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # run the startup programs
-exec --no-startup-id ~/.i3/autostart-shared
 exec --no-startup-id ~/.i3/autostart-desktop
+exec --no-startup-id ~/.i3/autostart-shared
 
 # create or create the bars
 exec_always --no-startup-id ~/.i3/bars
@@ -227,7 +227,7 @@ assign [class="chromium"] www
 #assign [class="google-chrome"] www
 assign [class="virt-manager"] virt
 assign [class="virt-viewer"] virt
-assign [class="Slack" instance="slack"] slack
+assign [class="Slack" instance="slack"] $ws1
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="zoom"] floating enable
