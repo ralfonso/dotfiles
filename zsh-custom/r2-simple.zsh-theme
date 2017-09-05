@@ -20,6 +20,7 @@ gray=$FG[248]
 red=$FG[161]
 blue=$FG[004]
 yellow=$FG[003]
+coolblue=$FG[075]
 
 if [ $UID -eq 0 ]; then NCOLOR=$green; else NCOLOR=$theme_color; fi
 
@@ -27,11 +28,11 @@ PROMPT=
 
 if [[ ! -z $SSH_CLIENT ]]; then
   # a little indication that we're in an SSH session
-  PROMPT="🔑 "
+  PROMPT=" "
 fi
 
 # prompt
-PROMPT=${PROMPT}'%{$NCOLOR%}%n@%{$theme_color%}%m%{$reset_color%}:%{$lightgray%}%45<...<%~%<<%{$reset_color%} $(git_prompt_info)%{$yellow%}%(!.#.➜) %{$reset_color%}'
+PROMPT=${PROMPT}'%{$NCOLOR%}%n@%{$theme_color%}%m%{$reset_color%}:%{$lightgray%}%45<...<%~%<<%{$reset_color%} $(git_prompt_info)%{$coolblue%}%(!.#.➜) %{$reset_color%}'
 RPROMPT=
 
 #PROMPT='%{$FG[$NCOLOR%}%m%{$theme_color%}$reset_color%}%(!.#.$) '

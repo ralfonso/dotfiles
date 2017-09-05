@@ -22,7 +22,7 @@ set $mod Mod1
 # is used in the bar {} block below.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font "pango:M+ 1m 11"
+font "pango:M+ 1m Bold 11"
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
 # The font above is very space-efficient, that is, it looks good, sharp and
@@ -33,9 +33,25 @@ font "pango:M+ 1m 11"
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
+# Color names.
+set $background  #282828
+set $focused     #0B3543
+set $foreground  #EEEEEE
+set $unfocused   #585858
+set $urgent      #ab4642
+
+# Window manager colors.
+# Class                  Border       Background   Text         Indicator
+client.focused           $focused     $focused     $foreground  $focused #00000000
+client.focused_inactive  $focused     $focused     $unfocused   $focused #00000000
+client.unfocused         $background  $background  $unfocused   $background #00000000
+client.urgent            $urgent      $urgent      $background  $urgent #00000000
+client.background                     $background
+
 # gaps config
 gaps inner 7
 gaps outer 7
+smart_borders no_gaps
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -186,21 +202,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
-# Color names.
-set $background  #282828
-set $foreground  #d8d8d8
-set $focused     #2d2d2d
-set $unfocused   #585858
-set $urgent      #ab4642
-
-# Window manager colors.
-# Class                  Border       Background   Text         Indicator
-client.focused           $focused     $focused     $foreground  $focused
-client.focused_inactive  $focused     $focused     $unfocused   $focused
-client.unfocused         $background  $background  $unfocused   $background
-client.urgent            $urgent      $urgent      $background  $urgent
-client.background                     $background
 
 # bar {
 #     position bottom

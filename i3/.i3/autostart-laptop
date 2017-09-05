@@ -14,3 +14,6 @@ if [[ ! -z "${synaptics_id}" ]];
 then
   xinput disable ${synaptics_id}
 fi
+
+# screen lock on lid close
+xss-lock ~/bin/i3-lock-wrapper.sh
