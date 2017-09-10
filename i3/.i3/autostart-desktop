@@ -17,8 +17,5 @@ setxkbmap -option compose:rwin
 # turn off the leds on a razer mouse
 type razercfg >/dev/null 2>&1 && razercfg -l all:off
 
-# screen lock on suspend
-~/.local/bin/xss-lock ~/bin/i3-lock-wrapper.sh &
-
 # load randr
 ~/.screenlayout/trihead.sh

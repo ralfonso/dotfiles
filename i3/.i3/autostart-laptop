@@ -16,4 +16,4 @@ then
 fi
 
 # screen lock on lid close
-xss-lock ~/bin/i3-lock-wrapper.sh
+~/.local/bin/xss-lock ~/bin/i3-lock-wrapper.sh &
