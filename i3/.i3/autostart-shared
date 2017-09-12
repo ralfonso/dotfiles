@@ -16,8 +16,8 @@ setxkbmap -option compose:rwin
 # Increase keyboard repeat
 xset r rate 220 43
 
-# Turn off the monitor after ten minutes idle
-xset dpms 0 0 600
+# Turn off the monitor after 11 minutes idle
+xset dpms 660 660 660
 
 # Then disable it since we let i3lock turn this on
 xset -dpms
