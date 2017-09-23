@@ -16,4 +16,4 @@ then
 fi
 
 # screen lock on lid close
-~/.local/bin/xss-lock ~/bin/i3-lock-wrapper.sh &
+~/.local/bin/xss-lock "flock -n /tmp/r2lockscreen -c dm-tool lock" &

@@ -70,4 +70,4 @@ slack &
 #########################################3
 
 # screen lock after 10m idle
-xautolock -time 10 -locker ~/bin/i3-lock-wrapper.sh &
+xautolock -time 10 -locker "flock -n /tmp/r2lockscreen -c dm-tool lock" &

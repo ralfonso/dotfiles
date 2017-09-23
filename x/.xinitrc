@@ -37,7 +37,6 @@ case "$WINDOWMANAGER" in
 esac
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
-export SSH_AUTH_SOCK
 
 #
 # finally start the window manager
