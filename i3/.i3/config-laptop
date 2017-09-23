@@ -227,6 +227,7 @@ assign [class="chromium"] www
 assign [class="virt-manager"] virt
 assign [class="virt-viewer"] virt
 assign [class="Slack" instance="slack"] $ws4
+assign [class="Spotify" instance="spotify"] $ws10
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="feh"] floating enable
 for_window [class="zoom"] floating enable
@@ -237,6 +238,6 @@ for_window [class="Gucharmap" instance="gucharmap"] floating enable
 for_window [title="cmus-scratchpad"] move scratchpad
 for_window [class="Google-chrome" window_role="pop-up"] floating enable
 for_window [class="Transmission-gtk" instance="transmission-gtk"] floating enable
-for_window [class="Spotify" instance="spotify"] floating enable
+for_window [class="Spotify" instance="spotify"] fullscreen enable
 for_window [class="openttd" instance="openttd"] floating enable
 for_window [class="Totem" instance="totem"] floating enable

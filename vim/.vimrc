@@ -242,7 +242,7 @@ nnoremap td  :tabclose<CR>
 syntax on
 
 map <Leader>v :e ~/.vimrc<CR>
-map <silent> <Leader>V :source ~/.vimr<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <silent> <Leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " vbell on osx, which doesn't work anyway
 set vb
@@ -291,6 +291,9 @@ nnoremap <silent> <Leader>w :Windows<cr>
 
 " gitgutter
 set updatetime=250
+
+" matchit
+runtime! macros/matchit.vim
 
 " fix the YouCompleteMe scratch window
 let g:ycm_autoclose_preview_window_after_completion = 1

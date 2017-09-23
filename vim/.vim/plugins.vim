@@ -20,6 +20,7 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/dcharbon/vim-flatbuffers'
 Plug 'arcticicestudio/nord-vim'
+Plug 'https://github.com/Yggdroot/indentLine'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'

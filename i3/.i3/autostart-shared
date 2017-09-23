@@ -19,9 +19,6 @@ xset r rate 220 43
 # Turn off the monitor after 11 minutes idle
 xset dpms 660 660 660
 
-# Then disable it since we let i3lock turn this on
-xset -dpms
-
 #########################################3
 # Helper daemons
 #########################################3

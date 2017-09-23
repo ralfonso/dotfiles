@@ -158,11 +158,16 @@ bindsym --release mod4+control+shift+4 exec ~/bin/spree-shot.sh
 
 #bindsym XF86AudioRaiseVolume exec cmus-remote --volume +10%
 #bindsym XF86AudioLowerVolume exec cmus-remote --volume -10%
-bindsym XF86AudioMute exec --no-startup-id cmus-remote --volume 0%
-bindsym XF86AudioPlay exec --no-startup-id ~/bin/player-control.sh playpause
-bindsym XF86AudioStop exec --no-startup-id ~/bin/player-control.sh stop
-bindsym XF86AudioPrev exec --no-startup-id ~/bin/player-control.sh previous
-bindsym XF86AudioNext exec --no-startup-id ~/bin/player-control.sh next
+# bindsym XF86AudioMute exec --no-startup-id cmus-remote --volume 0%
+# bindsym XF86AudioPlay exec --no-startup-id ~/bin/player-control.sh playpause
+# bindsym XF86AudioStop exec --no-startup-id ~/bin/player-control.sh stop
+# bindsym XF86AudioPrev exec --no-startup-id ~/bin/player-control.sh previous
+# bindsym XF86AudioNext exec --no-startup-id ~/bin/player-control.sh next
+
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioStop exec --no-startup-id playerctl stop
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -238,6 +243,6 @@ for_window [class="Gucharmap" instance="gucharmap"] floating enable
 for_window [title="cmus-scratchpad"] move scratchpad
 for_window [class="Google-chrome" window_role="pop-up"] floating enable
 for_window [class="Transmission-gtk" instance="transmission-gtk"] floating enable
-for_window [class="Spotify" instance="spotify"] floating enable
+# for_window [class="Spotify" instance="spotify"] floating enable
 for_window [class="openttd" instance="openttd"] floating enable
 for_window [class="Totem" instance="totem"] floating enable
