@@ -10,7 +10,7 @@ Plug 'https://github.com/fatih/vim-go.git'
 Plug 'https://github.com/majutsushi/tagbar.git'
 Plug 'https://github.com/ivanov/vim-ipython.git'
 Plug 'https://github.com/mileszs/ack.vim.git'
-Plug 'https://github.com/qpkorr/vim-bufkill.git'
+Plug 'mhinz/vim-sayonara'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 Plug 'https://github.com/ajh17/VimCompletesMe'
 Plug 'https://github.com/paranoida/vim-airlineish.git'
@@ -21,6 +21,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/dcharbon/vim-flatbuffers'
 Plug 'arcticicestudio/nord-vim'
 Plug 'https://github.com/Yggdroot/indentLine'
+Plug 'ntpeters/vim-better-whitespace'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'
