@@ -238,6 +238,5 @@ for_window [class="Gucharmap" instance="gucharmap"] floating enable
 for_window [title="cmus-scratchpad"] move scratchpad
 for_window [class="Google-chrome" window_role="pop-up"] floating enable
 for_window [class="Transmission-gtk" instance="transmission-gtk"] floating enable
-for_window [class="Spotify" instance="spotify"] fullscreen enable
 for_window [class="openttd" instance="openttd"] floating enable
 for_window [class="Totem" instance="totem"] floating enable
