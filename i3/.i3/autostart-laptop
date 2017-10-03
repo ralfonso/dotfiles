@@ -14,6 +14,3 @@ if [[ ! -z "${synaptics_id}" ]];
 then
   xinput disable ${synaptics_id}
 fi
-
-# screen lock on lid close
-~/.local/bin/xss-lock "flock -n /tmp/r2lockscreen -c dm-tool lock" &
