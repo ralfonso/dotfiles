@@ -20,7 +20,7 @@ noremap <Left> <NOP>
 noremap <Right> <NOP>
 
 " leader q uses sayonara to do a smarter close
-nnoremap <silent> <leader>q :Sayonara<CR>
+nnoremap <silent> <leader>q :Sayonara!<CR>
 
 " autocomplete
 set completeopt=longest,menu
