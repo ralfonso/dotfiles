@@ -69,4 +69,4 @@ slack &
 # Misc
 #########################################3
 
-~/.local/bin/xss-lock dm-tool lock &
+~/.local/bin/xss-lock i3lock &

@@ -14,3 +14,5 @@ if [[ ! -z "${synaptics_id}" ]];
 then
   xinput disable ${synaptics_id}
 fi
+
+blueman-applet &

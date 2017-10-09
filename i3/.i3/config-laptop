@@ -152,7 +152,7 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Return exec sakura --config-file sakura-laptop.conf
 
 # rofi launcher
-bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi -lines 15 -eh 1 -width 800 -yoffset 20"
+bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi,window -lines 15 -eh 1 -yoffset 20"
 
 # manual screen lock
 bindsym $mod+Ctrl+l exec ~/bin/i3-lock-wrapper.sh
@@ -240,3 +240,4 @@ for_window [class="Google-chrome" window_role="pop-up"] floating enable
 for_window [class="Transmission-gtk" instance="transmission-gtk"] floating enable
 for_window [class="openttd" instance="openttd"] floating enable
 for_window [class="Totem" instance="totem"] floating enable
+for_window [instance="sxiv"] floating enable

@@ -39,30 +39,11 @@ xscreensaver.passwd.thermometer.width:       8
 /*********************************************************************
  *                               rofi                                *
  *********************************************************************/
-
-!rofi.font:            Liberation Sans Narrow Bold 20
-rofi.font:            M+ 1c 20
-rofi.terminal:        i3-sensible-terminal
-!rofi.lines:           10
-rofi.columns:         1
-!rofi.eh:              2
-!rofi.padding:         0
-rofi.location:        2
-!rofi.width:           100
-rofi.line-margin:     6
-rofi.fullscreen:      false
-rofi.opacity:         0
-!rofi.bw:              0
-rofi.sidebar-mode:    false
-rofi.separator-style: solid
-rofi.hide-scrollbar:  true
-rofi.fuzzy:           true
-rofi.color-enabled:   true
-rofi.monitor:         0
+rofi.color-enabled: true
 
 #define bg_external argb:cc000000
 #define bg_internal argb:00000000
-#define bg_active   #81569c
+#define bg_active   argb:6681569c
 #define text_normal #686868
 #define text_active #d9d9d9
 #define sep         #e8e8e8
@@ -72,3 +53,14 @@ rofi.color-normal: bg_internal, text_normal, bg_internal, bg_active, text_active
 rofi.color-urgent: bg_internal, text_normal, bg_internal, bg_active, text_active
 rofi.color-active: bg_internal, text_normal, bg_internal, bg_active, text_active
 rofi.color-window: bg_external, bg_external, sep,         bg_active, text_active
+
+rofi.hide-scrollbar: 	true
+rofi.font:  			Overpass 20
+rofi.separator-style:   solid
+rofi.bw: 			2
+rofi.width: 		80
+rofi.lines:         10
+rofi.location: 		2
+rofi.columns:		3
+rofi.fuzzy:         true
+rofi.sidebar-mode:  true
