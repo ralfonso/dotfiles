@@ -22,6 +22,8 @@ Plug 'https://github.com/dcharbon/vim-flatbuffers'
 Plug 'arcticicestudio/nord-vim'
 Plug 'https://github.com/Yggdroot/indentLine'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'elzr/vim-json'
+Plug 't9md/vim-choosewin'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'

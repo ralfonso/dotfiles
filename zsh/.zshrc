@@ -55,6 +55,7 @@ export LESS="-iMSrx4 -FX"
 
 # golang
 export GOPATH=~/go
+export CDPATH=.:${GOPATH}/src/github.com:${GOPATH}/src/golang.org
 
 # tidy
 export HTML_TIDY=~/.tidyrc
