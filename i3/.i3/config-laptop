@@ -241,3 +241,4 @@ for_window [class="Transmission-gtk" instance="transmission-gtk"] floating enabl
 for_window [class="openttd" instance="openttd"] floating enable
 for_window [class="Totem" instance="totem"] floating enable
 for_window [instance="sxiv"] floating enable
+for_window [instance="blueman-manager"] floating enable

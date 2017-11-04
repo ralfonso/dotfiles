@@ -16,3 +16,4 @@ then
 fi
 
 blueman-applet &
+cbatticon &

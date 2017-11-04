@@ -133,6 +133,7 @@ set nofoldenable
 ""set isk=@,48-57,_,192-255,-,.,@-@
 set nohlsearch
 set ignorecase
+set smartcase
 set noincsearch
 
 " set a toggle for pasting input
