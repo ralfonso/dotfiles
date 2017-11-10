@@ -210,7 +210,20 @@ augroup vimrcEX
         \ formatoptions+=croq softtabstop=2 smartindent
         \ cinwords=if,elif,else,for,while,try,except,finally,def,class,with
         \ list listchars=tab:>.,trail:.,extends:#,nbsp:.
+
     autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4
+
+    " the following stolen from jessfraz's bindings
+    au FileType go nmap <Leader>s <Plug>(go-def-split)
+    au FileType go nmap <Leader>v <Plug>(go-def-vertical)
+    au FileType go nmap <Leader>i <Plug>(go-info)
+    au FileType go nmap <Leader>l <Plug>(go-metalinter)
+    au FileType go nmap <leader>r  <Plug>(go-run)
+    au FileType go nmap <leader>b  <Plug>(go-build)
+    au FileType go nmap <leader>t  <Plug>(go-test)
+    au FileType go nmap <leader>dt  <Plug>(go-test-compile)
+    au FileType go nmap <Leader>d <Plug>(go-doc)
+
     autocmd FileType proto setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType sh setlocal expandtab shiftwidth=2 tabstop=2
@@ -245,7 +258,6 @@ nnoremap td  :tabclose<CR>
 " enable syntax hilighting "
 syntax on
 
-map <Leader>v :e ~/.vimrc<CR>
 map <silent> <Leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " vbell on osx, which doesn't work anyway
