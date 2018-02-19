@@ -19,3 +19,6 @@ type razercfg >/dev/null 2>&1 && razercfg -l all:off
 
 # load randr
 ~/.screenlayout/trihead.sh
+
+# notifications daemon
+dunst &

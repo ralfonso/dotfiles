@@ -1,5 +1,7 @@
 #!/bin/bash
 
+xfsettingsd &
+
 # Make PrtSc Compose (it's in the right super position on my Thinkpad)
 setxkbmap -option compose:prsc
 
@@ -16,4 +18,7 @@ then
 fi
 
 blueman-applet &
-cbatticon &
+#cbatticon &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
+/usr/bin/xfce4-power-manager &
+xautolock -locker xflock4 -time 10 -corners 0-00

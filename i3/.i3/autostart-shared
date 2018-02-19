@@ -42,9 +42,6 @@ compton -f -b -D 2
 # Tray Apps
 #########################################3
 
-# notifications daemon
-dunst &
-
 # Pulseaudio tray icon/chooser
 pasystray &
 
@@ -69,4 +66,4 @@ slack &
 # Misc
 #########################################3
 
-~/.local/bin/xss-lock i3lock &
+#~/.local/bin/xss-lock i3lock &

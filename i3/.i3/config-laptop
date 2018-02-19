@@ -8,7 +8,6 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
 # run the startup programs
 exec --no-startup-id ~/.i3/autostart-shared
 exec --no-startup-id ~/.i3/autostart-laptop
@@ -155,7 +154,8 @@ bindsym $mod+Return exec sakura --config-file sakura-laptop.conf
 bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi,window -lines 15 -eh 1 -yoffset 20"
 
 # manual screen lock
-bindsym $mod+Ctrl+l exec ~/bin/i3-lock-wrapper.sh
+#bindsym $mod+Ctrl+l exec ~/bin/i3-lock-wrapper.sh
+bindsym $mod+Ctrl+l exec xflock4
 
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
@@ -177,6 +177,7 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #d
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 bindsym XF86MonBrightnessUp exec --no-startup-id sudo /usr/local/bin/brightlight -p -i 15
 bindsym XF86MonBrightnessDown exec --no-startup-id sudo /usr/local/bin/brightlight -p -d 15
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute 1 toggle # mute mic
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

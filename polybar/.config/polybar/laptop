@@ -275,7 +275,7 @@ type = internal/date
 interval = 5
 
 ; Format for date
-date = " %b %-d"
+date = " %b %d"
 date-alt = " %Y-%m-%d"
 
 ; Format for time

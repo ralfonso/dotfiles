@@ -8,9 +8,9 @@ dconf=~/.config/polybar/desktop
 
 if [[ "${display_count}" -eq 1 ]];
 then
-  MONITOR=eDP-1 ~/.local/bin/polybar -c ${lconf} main &
+  MONITOR=eDP-1 polybar -c ${lconf} main &
 else
-  MONITOR=DP-0 ~/.local/bin/polybar -c ${dconf} main &
-  MONITOR=DP-2 ~/.local/bin/polybar -c ${dconf} left &
-  MONITOR=DP-4 ~/.local/bin/polybar -c ${dconf} right &
+  MONITOR=DP-0 polybar -c ${dconf} main &
+  MONITOR=DP-2 polybar -c ${dconf} left &
+  MONITOR=DP-4 polybar -c ${dconf} right &
 fi
