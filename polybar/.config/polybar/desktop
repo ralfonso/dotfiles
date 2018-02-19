@@ -65,9 +65,10 @@ tray-scale = 1.0
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-;wm-restack = i3
+; wm-restack = i3
 
 ;override-redirect = true
+monitor-strict = false
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -83,10 +84,12 @@ monitor = ${env:MONITOR}
 ; my left monitor is not 4k
 font-0 = Font Awesome:pixelsize=20;2
 font-1 = DejaVu Sans:size=13:dpi=100
+monitor-strict = false
 
 [bar/right]
 inherit = bar/a2-secondary
 monitor = ${env:MONITOR}
+monitor-strict = false
 
 [module/xwindow]
 type = internal/xwindow
@@ -189,7 +192,7 @@ interface = enp10s0
 interval = 3.0
 
 format-connected-overline = #9f78e1
-format-connected-prefix = " "
+#format-connected-prefix = " "
 format-connected-foreground-foreground = ${colors.foreground-alt}
 label-connected =  %upspeed%  %downspeed%
 
@@ -201,7 +204,7 @@ label-disconnected-foreground = ${colors.foreground-alt}
 type = internal/date
 interval = 5
 
-date = " %b %-d"
+date = " %b %d"
 date-alt = " %Y-%m-%d"
 
 time = %H:%M

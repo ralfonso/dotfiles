@@ -10,8 +10,8 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # run the startup programs
-exec --no-startup-id ~/.i3/autostart-desktop
 exec --no-startup-id ~/.i3/autostart-shared
+exec --no-startup-id ~/.i3/autostart-desktop
 
 # create or create the bars
 exec_always --no-startup-id ~/.i3/bars
@@ -246,3 +246,4 @@ for_window [class="Transmission-gtk" instance="transmission-gtk"] floating enabl
 # for_window [class="Spotify" instance="spotify"] floating enable
 for_window [class="openttd" instance="openttd"] floating enable
 for_window [class="Totem" instance="totem"] floating enable
+for_window [class="stellaris"] border none
