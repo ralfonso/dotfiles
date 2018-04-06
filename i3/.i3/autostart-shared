@@ -7,18 +7,6 @@
 # load Xresources
 xrdb -merge ~/.Xresources
 
-# Make caps another ctrl
-setxkbmap -layout us -option ctrl:nocaps
-
-# Make right alt/win compose
-setxkbmap -option compose:rwin
-
-# Increase keyboard repeat
-xset r rate 220 43
-
-# Turn off the monitor after 11 minutes idle
-xset dpms 660 660 660
-
 #########################################3
 # Helper daemons
 #########################################3
@@ -31,9 +19,6 @@ nitrogen --restore
 
 # file manager daemon
 thunar --daemon &
-
-# Compositor
-compton -f -b -D 2
 
 # polkit
 /usr/lib/polkit-gnome-authentication-agent-1 &
@@ -49,7 +34,7 @@ pasystray &
 nm-applet &
 
 ## Start Clipboard manager
-(sleep 3s && clipit) &
+clipit &
 
 emojione-picker &
 

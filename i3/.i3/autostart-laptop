@@ -22,3 +22,6 @@ blueman-applet &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 /usr/bin/xfce4-power-manager &
 xautolock -locker xflock4 -time 10 -corners 0-00
+
+# Compositor
+compton -f -b -D 2

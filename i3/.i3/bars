@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
+set -x
+PATH=$PATH:~/.local/bin
 
 pkill -f polybar
+sleep 1
 
 display_count=$(xrandr | grep -c ' connected')
 lconf=~/.config/polybar/laptop
