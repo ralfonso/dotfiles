@@ -23,5 +23,8 @@ blueman-applet &
 /usr/bin/xfce4-power-manager &
 xautolock -locker xflock4 -time 10 -corners 0-00
 
+# redshift color temperature
+redshift-gtk &
+
 # Compositor
 compton -f -b -D 2

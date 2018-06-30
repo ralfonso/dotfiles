@@ -21,8 +21,12 @@ type razercfg >/dev/null 2>&1 && razercfg -l all:off
 # load randr
 ~/.screenlayout/trihead.sh
 
+# redshift color temperature
+redshift-gtk -l 34.0764:-118.2626 &
+
 # notifications daemon
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 xfce4-power-manager &
 flameshot &
 xscreensaver &
+
