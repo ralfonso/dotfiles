@@ -191,6 +191,8 @@ endif
 augroup vimrcEX
     au BufRead,BufNewFile *.md set filetype=markdown
     au BufRead,BufNewFile *.pp   setfiletype puppet
+    autocmd FileType bash setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType zsh setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType html setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType css setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType scss setlocal expandtab shiftwidth=2 tabstop=2

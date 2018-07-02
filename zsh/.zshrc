@@ -3,6 +3,13 @@ ZSH=$HOME/.oh-my-zsh
 ZSH_CUSTOM=$HOME/dotfiles/zsh-custom
 HISTSIZE=50000
 
+for file in ~/.{aliases,functions,path,extra,exports}; do
+  if [[ -r "$file" ]] && [[ -f "$file" ]]; then
+    source "$file"
+  fi
+done
+unset file
+
 if [[ -e ~/.zshrc-priv ]];
 then
     source ~/.zshrc-priv

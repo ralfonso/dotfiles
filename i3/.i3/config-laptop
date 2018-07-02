@@ -158,8 +158,8 @@ bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show c
 bindsym $mod+Ctrl+l exec xflock4
 
 # exit i3 (logs you out of your X session)
-# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-bindsym $mod+Shift+e exec "i3-exit.py"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+#bindsym $mod+Shift+e exec "i3-exit.py"
 
 # screenshots
 bindsym --release mod4+control+shift+4 exec ~/bin/spree-shot.sh
