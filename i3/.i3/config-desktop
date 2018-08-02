@@ -16,7 +16,7 @@ exec --no-startup-id ~/.i3/autostart-desktop
 # create or create the bars
 exec_always --no-startup-id ~/.i3/bars
 
-set $mod Mod1
+set $mod Mod4
 
 # gaps config
 gaps inner 15
@@ -141,7 +141,9 @@ bindsym $mod+minus scratchpad show
 
 # EXECS!
 # start a terminal
-bindsym $mod+Return exec sakura --config-file sakura-desktop.conf
+# bindsym $mod+Return exec sakura --config-file sakura-desktop.conf
+bindsym $mod+Return exec kitty
+
 
 # rofi launcher
 bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi -lines 15 -eh 1 -width 1500 -yoffset 50"

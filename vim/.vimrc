@@ -78,8 +78,8 @@ let g:syntastic_go_checkers=[]
 let g:syntastic_enable_go_checker = 0
 
 set number
-set relativenumber
-set cursorline
+set norelativenumber
+set nocursorline
 set laststatus=2
 set showtabline=2
 
@@ -230,6 +230,14 @@ augroup vimrcEX
     autocmd FileType yaml setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType sh setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType json setlocal expandtab shiftwidth=2 tabstop=2
+augroup END
+
+" I like these more!
+augroup go
+  autocmd!
+  autocmd Filetype go command! -bang A call go#alternate#Switch(<bang>0, 'edit')
+  autocmd Filetype go command! -bang AV call go#alternate#Switch(<bang>0, 'vsplit')
+  autocmd Filetype go command! -bang AS call go#alternate#Switch(<bang>0, 'split')
 augroup END
 
 let g:py_select_leading_comments = 0
