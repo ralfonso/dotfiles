@@ -15,7 +15,7 @@ exec --no-startup-id ~/.i3/autostart-laptop
 # create or create the bars
 exec_always --no-startup-id ~/.i3/bars
 
-set $mod Mod1
+set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -48,9 +48,9 @@ client.urgent            $urgent      $urgent      $background  $urgent #0000000
 client.background                     $background
 
 # gaps config
-gaps inner 7
-gaps outer 7
-smart_borders no_gaps
+# gaps inner 7
+# gaps outer 7
+# smart_borders no_gaps
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -148,7 +148,8 @@ bindsym $mod+minus scratchpad show
 
 # EXECS!
 # start a terminal
-bindsym $mod+Return exec sakura --config-file sakura-laptop.conf
+#bindsym $mod+Return exec sakura --config-file sakura-laptop.conf
+bindsym $mod+Return exec kitty
 
 # rofi launcher
 bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi,window -lines 15 -eh 1 -yoffset 20"
