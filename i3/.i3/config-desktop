@@ -144,7 +144,6 @@ bindsym $mod+minus scratchpad show
 # bindsym $mod+Return exec sakura --config-file sakura-desktop.conf
 bindsym $mod+Return exec alacritty
 
-
 # rofi launcher
 bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi -lines 15 -eh 1 -width 1500 -yoffset 50"
 

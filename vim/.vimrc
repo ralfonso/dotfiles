@@ -280,6 +280,7 @@ let g:tagbar_width = 60
 let g:go_highlight_methods = 1
 let g:go_highlight_functions = 1
 let g:go_fmt_command = "goimports"
+let g:go_fmt_options = {'goimports': '-local=do'}
 let g:go_list_type = "quickfix"
 
 let g:tagbar_type_go = {

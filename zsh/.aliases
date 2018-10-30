@@ -2,3 +2,4 @@ alias prettyjson="python -mjson.tool"
 type vim > /dev/null && alias vi='vim'
 alias tma='tmux -2 new -As'
 alias k=kubectl
+alias ip="ip -br -c"

@@ -15,7 +15,7 @@ xrdb -merge ~/.Xresources
 ibus-daemon &
 
 # restore wallpaper
-nitrogen --restore
+(sleep 5s && nitrogen --restore) &
 
 # file manager daemon
 thunar --daemon &
