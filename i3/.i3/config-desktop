@@ -142,7 +142,7 @@ bindsym $mod+minus scratchpad show
 # EXECS!
 # start a terminal
 # bindsym $mod+Return exec sakura --config-file sakura-desktop.conf
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 
 # rofi launcher

@@ -34,7 +34,8 @@ floating_modifier $mod
 
 # Color names.
 set $background  #282828
-set $focused     #0B3543
+#set $focused     #0B3543
+set $focused     #131C26
 set $foreground  #EEEEEE
 set $unfocused   #585858
 set $urgent      #ab4642
@@ -149,14 +150,14 @@ bindsym $mod+minus scratchpad show
 # EXECS!
 # start a terminal
 #bindsym $mod+Return exec sakura --config-file sakura-laptop.conf
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec alacritty
 
 # rofi launcher
 bindsym $mod+space exec "~/.local/bin/rofi -combi-modi 'drun,window,run' -show combi -modi combi,window -lines 15 -eh 1 -yoffset 20"
 
 # manual screen lock
 #bindsym $mod+Ctrl+l exec ~/bin/i3-lock-wrapper.sh
-bindsym $mod+Ctrl+l exec xflock4
+bindsym $mod+Ctrl+l exec cinnamon-screensaver-command -l
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"

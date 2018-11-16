@@ -17,7 +17,8 @@ very-dark-gray      = #77444444
 very-dark-gray-alt  = #444
 text                = #aaa
 white				= #FFF
-icons               = #7DCDB3
+;icons               = #7DCDB3
+icons               = #39A0C6
 white-alt			= #EEE
 
 primary   = #1565c0
