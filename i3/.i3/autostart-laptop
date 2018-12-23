@@ -21,10 +21,10 @@ blueman-applet &
 #cbatticon &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 /usr/bin/xfce4-power-manager &
-xautolock -locker xflock4 -time 10 -corners 0-00 &
+#xautolock -locker xflock4 -time 10 -corners 0-00 &
 
 # Compositor
-compton -f -b -D 2
+compton -f -b -D 2 --backend glx --vsync opengl-mswc
 redshift-gtk -l 34.0764:-118.2626 &
 cinnamon-screensaver &
-#light-locker &
+light-locker &

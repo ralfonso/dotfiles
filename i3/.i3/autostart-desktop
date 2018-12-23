@@ -28,5 +28,4 @@ redshift-gtk -l 34.0764:-118.2626 &
 /usr/lib/xfce4/notifyd/xfce4-notifyd &
 xfce4-power-manager &
 flameshot &
-xscreensaver &
-
+light-locker &
