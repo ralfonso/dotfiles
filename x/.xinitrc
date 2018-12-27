@@ -38,6 +38,8 @@ esac
 
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
 
+xhost +local:root
+
 PATH=${HOME}/.local/bin:${PATH}
 export PATH
 
