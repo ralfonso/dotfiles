@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 set -x
-PATH=$PATH:~/.local/bin
-
 pkill -f polybar
 sleep 1
 
