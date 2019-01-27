@@ -9,11 +9,11 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 # run the startup programs
-exec --no-startup-id ~/.i3/autostart-shared
-exec --no-startup-id ~/.i3/autostart-laptop
+exec --no-startup-id ~/.config/i3/autostart-shared
+exec --no-startup-id ~/.config/i3/autostart-laptop
 
 # create or create the bars
-exec_always --no-startup-id ~/.i3/bars
+exec_always --no-startup-id ~/.config/i3/bars
 
 set $mod Mod4
 
@@ -205,24 +205,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 bindsym $mod+r mode "resize"
-
-# bar {
-#     position bottom
-#     status_command ~/.local/bin/i3blocks -c /home/r2/.i3/i3blocks.conf
-#     separator_symbol ""
-#     colors {
-#         separator   #757575
-#         background  $background
-#         statusline  $foreground
-#         separator   $unfocused
-#         # Class             Border       Background   Text
-#         focused_workspace   $background  $background  $foreground
-#         active_workspace    $background  $background  $foreground
-#         inactive_workspace  $background  $background  $unfocused
-#         urgent_workspace    $background  $background  $urgent
-#     }
-#     tray_output DP-0
-# }
 
 # app settings
 assign [class="chromium"] www
