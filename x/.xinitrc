@@ -43,6 +43,13 @@ xhost +local:root
 PATH=${HOME}/.local/bin:${PATH}
 export PATH
 
+# set up i3 config
+if [ -d "${HOME}/.config/i3" ]; then
+  if [ -d "/sys/module/thinkpad_acpi" ]; then
+    ln -s "${HOME}/.config/i3/config-laptop" "${HOME}/.config/i3/config"
+  fi
+fi
+
 #
 # finally start the window manager
 #
