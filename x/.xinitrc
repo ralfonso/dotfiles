@@ -47,6 +47,8 @@ export PATH
 if [ -d "${HOME}/.config/i3" ]; then
   if [ -d "/sys/module/thinkpad_acpi" ]; then
     ln -s "${HOME}/.config/i3/config-laptop" "${HOME}/.config/i3/config"
+  else
+    ln -s "${HOME}/.config/i3/config-desktop" "${HOME}/.config/i3/config"
   fi
 fi
 

@@ -10,17 +10,17 @@
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
 # run the startup programs
-exec --no-startup-id ~/.i3/autostart-shared
-exec --no-startup-id ~/.i3/autostart-desktop
+exec --no-startup-id ~/.config/i3/autostart-shared
+exec --no-startup-id ~/.config/i3/autostart-desktop
 
 # create or create the bars
-exec_always --no-startup-id ~/.i3/bars
+exec_always --no-startup-id ~/.config/i3/bars
 
 set $mod Mod4
 
 # gaps config
-gaps inner 15
-gaps outer 15
+#gaps inner 15
+#gaps outer 15
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
