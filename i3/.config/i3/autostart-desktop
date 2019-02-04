@@ -29,3 +29,4 @@ redshift-gtk -l 34.0764:-118.2626 &
 xfce4-power-manager &
 flameshot &
 light-locker &
+/usr/lib64/signal-desktop/signal-desktop --start-in-tray &
