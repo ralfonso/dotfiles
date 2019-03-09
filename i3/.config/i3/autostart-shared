@@ -36,8 +36,6 @@ nm-applet &
 ## Start Clipboard manager
 clipit &
 
-emojione-picker &
-
 #########################################3
 # Desktop Apps
 #########################################3
@@ -49,3 +47,4 @@ slack &
 #########################################3
 
 #~/.local/bin/xss-lock i3lock &
+/usr/bin/signal-desktop --start-in-tray &
