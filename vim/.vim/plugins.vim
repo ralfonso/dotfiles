@@ -25,6 +25,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'elzr/vim-json'
 Plug 't9md/vim-choosewin'
 Plug 'aklt/plantuml-syntax'
+Plug 'SirVer/ultisnips'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim'

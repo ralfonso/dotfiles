@@ -256,7 +256,7 @@ nmap <leader>' :bnext<CR>
 nmap <leader>; :bprevious<CR>
 
 " tabs
- noremap th  :tabfirst<CR>
+noremap th :tabfirst<CR>
 nnoremap tj  :tabnext<CR>
 nnoremap tk  :tabprev<CR>
 nnoremap tl  :tablast<CR>
@@ -337,3 +337,6 @@ let g:vim_json_syntax_conceal = 0
 " choosewin
 nmap - <Plug>(choosewin)
 let g:choosewin_overlay_enable = 1
+
+" ultisinps
+let g:UltiSnipsExpandTrigger="<Leader><tab>"
