@@ -77,6 +77,9 @@ let g:syntastic_enable_ruby_checker = 0
 let g:syntastic_go_checkers=[]
 let g:syntastic_enable_go_checker = 0
 
+" allow shellcheck to follow
+let g:syntastic_sh_shellcheck_args="-x"
+
 set number
 set norelativenumber
 set nocursorline
@@ -191,7 +194,8 @@ endif
 augroup vimrcEX
     au BufRead,BufNewFile *.md set filetype=markdown
     au BufRead,BufNewFile *.pp   setfiletype puppet
-    autocmd FileType bash setlocal expandtab shiftwidth=2 tabstop=2
+    autocmd FileType bash setlocal noexpandtab shiftwidth=2 tabstop=2
+    autocmd FileType sh setlocal noexpandtab shiftwidth=2 tabstop=2
     autocmd FileType zsh setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType html setlocal expandtab shiftwidth=2 tabstop=2
     autocmd FileType css setlocal expandtab shiftwidth=2 tabstop=2
@@ -214,6 +218,7 @@ augroup vimrcEX
         \ list listchars=tab:>.,trail:.,extends:#,nbsp:.
 
     autocmd FileType go setlocal noexpandtab shiftwidth=4 tabstop=4
+    autocmd FileType gitcommit setlocal spell textwidth=72
 
     " the following stolen from jessfraz's bindings
     au FileType go nmap <Leader>s <Plug>(go-def-split)
