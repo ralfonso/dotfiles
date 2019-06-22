@@ -270,6 +270,9 @@ nnoremap tn  :tabnext<Space>
 nnoremap tm  :tabm<Space>
 nnoremap td  :tabclose<CR>
 
+nmap <leader>[ :cprev<CR>
+nmap <leader>] :cnext<CR>
+
 " enable syntax hilighting "
 syntax on
 
